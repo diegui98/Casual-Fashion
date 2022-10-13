@@ -7,16 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
   @Input()
-  image: string[] = ['noimage.jpg'];
-  @Input()
-  name: string = 'Product Name';
-  @Input()
-  price: number = 0;
-  @Input()
-  colors: string[] = ['blue', 'green', 'yellow'];
+  product: any = {
+    name: 'Product Name',
+    image: [
+      { image: ['noimage.jpg', 'noimage2.png'], color: 'blue' },
+      { image: ['noimage2.png'], color: 'green' },
+    ],
+    price: 0,
+  };
   backgroundColor: string = 'background-color: ';
   activeColor: number = 0;
-  imageSrc: string = '../../../../assets/' + this.image[0];
+  imagePath: string = '../../../../assets/';
+  imageSrc: string = this.imagePath + this.product.image[0].image[0];
 
   constructor() {}
 
@@ -24,19 +26,22 @@ export class ProductCardComponent implements OnInit {
 
   selectColor(i: number): void {
     this.activeColor = i;
-    console.log(this.activeColor);
+    this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
   }
 
   swapImage(): void {
     if (
-      this.image[1] &&
-      this.imageSrc == '../../../../assets/' + this.image[0]
+      this.product.image[this.activeColor].image[1] &&
+      this.imageSrc ==
+        this.imagePath + this.product.image[this.activeColor].image[0]
     ) {
-      this.imageSrc = '../../../../assets/' + this.image[1];
+      this.imageSrc =
+        this.imagePath + this.product.image[this.activeColor].image[1];
       return;
     }
-    if (this.image[1]) {
-      this.imageSrc = '../../../../assets/' + this.image[0];
+    if (this.product.image[this.activeColor].image[1]) {
+      this.imageSrc =
+        this.imagePath + this.product.image[this.activeColor].image[0];
     }
   }
 }

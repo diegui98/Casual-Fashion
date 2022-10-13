@@ -8,19 +8,22 @@
   />
   <div>
     <div style="display: flex; align-items: center; height: 26px">
-      <div style="flex-grow: 1">{{ name }}</div>
+      <div style="flex-grow: 1">{{ product.name }}</div>
       <div style="flex-grow: 1; display: flex; justify-content: flex-end">
-        <div *ngFor="let color of colors; index as i">
+        <div *ngFor="let image of product.image; index as i">
           <div
             (click)="selectColor(i)"
             class="color-circle"
             [ngClass]="{ active: activeColor == i }"
           >
-            <div class="color-inside" [style]="backgroundColor + color"></div>
+            <div
+              class="color-inside"
+              [style]="backgroundColor + image.color"
+            ></div>
           </div>
         </div>
       </div>
     </div>
-    <div style="font-weight: bold"><span>$</span>{{ price }}</div>
+    <div style="font-weight: bold"><span>$</span>{{ product.price }}</div>
   </div>
 </div>
