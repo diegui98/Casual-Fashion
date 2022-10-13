@@ -1,0 +1,26 @@
+<div>
+  <img
+    alt="Product"
+    [src]="imageSrc"
+    style="width: 100%; height: 100%"
+    (mouseenter)="swapImage()"
+    (mouseleave)="swapImage()"
+  />
+  <div>
+    <div style="display: flex; align-items: center; height: 26px">
+      <div style="flex-grow: 1">{{ name }}</div>
+      <div style="flex-grow: 1; display: flex; justify-content: flex-end">
+        <div *ngFor="let color of colors; index as i">
+          <div
+            (click)="selectColor(i)"
+            class="color-circle"
+            [ngClass]="{ active: activeColor == i }"
+          >
+            <div class="color-inside" [style]="backgroundColor + color"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="font-weight: bold"><span>$</span>{{ price }}</div>
+  </div>
+</div>

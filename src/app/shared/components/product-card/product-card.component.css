@@ -1,0 +1,21 @@
+.color-circle {
+    width: 22px;
+    cursor: pointer;
+    height: 22px;
+
+    border-radius: 90px;
+    margin-right: 2px;
+}
+
+.color-inside {
+    border: none;
+    width: 18px;
+    height: 18px;
+    margin: auto;
+    margin-top: 2px;
+    border-radius: 90px;
+}
+
+.active {
+    border: 1px solid;
+}
