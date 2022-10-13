@@ -1,0 +1,12 @@
+.catalog {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    flex-wrap: wrap;
+}
+
+.productCard {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 30%;
+}
