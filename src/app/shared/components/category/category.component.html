@@ -7,8 +7,11 @@
     ><span class="categorySpacer">></span
     ><a class="categoryLink">{{ category }}</a>
   </div>
+  <div>
+    <app-sortBy [productList]="productList"></app-sortBy>
+  </div>
 </div>
 
 <div class="container">
-  <app-catalog></app-catalog>
+  <app-catalog [productList]="productList"></app-catalog>
 </div>
