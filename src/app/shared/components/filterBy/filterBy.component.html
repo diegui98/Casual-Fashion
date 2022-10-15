@@ -1,0 +1,34 @@
+<button class="btn btn-outline-secondary" (click)="toggleFilter()">
+  Filter By
+  <img
+    style="height: 20px; margin-left: 6px"
+    src="../../../../assets/settings.png"
+  />
+</button>
+<div style="display: flex; flex-wrap: wrap" *ngIf="clickedFilter">
+  <div style="display: flex; width: 100%">
+    <label style="margin-right: 4px">Price:</label>
+    <input
+      style="flex-grow: 1; width: inherit"
+      type="number"
+      placeholder=". . ."
+    />
+  </div>
+  <div style="display: flex; width: 100%">
+    <label style="margin-right: 4px">Color:</label>
+    <div style="display: flex; flex-grow: 1">
+      <div
+        style="flex-grow: 1; text-align: -webkit-center"
+        *ngFor="let color of colorList; index as i"
+      >
+        <div
+          (click)="selectColor(color, i)"
+          class="color-circle"
+          [ngClass]="{ active: activeColor == i }"
+        >
+          <div class="color-inside" [style]="backgroundColor + color"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

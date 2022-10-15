@@ -7,8 +7,12 @@
     ><span class="categorySpacer">></span
     ><a class="categoryLink">{{ category }}</a>
   </div>
-  <div>
-    <app-sortBy [productList]="productList"></app-sortBy>
+  <div style="display: flex; justify-content: space-between">
+    <app-filterBy
+      [productList]="productList"
+      style="flex-shrink: 1; width: 30%"
+    ></app-filterBy>
+    <app-sortBy [productList]="productList" style="flex-shrink: 1"></app-sortBy>
   </div>
 </div>
 

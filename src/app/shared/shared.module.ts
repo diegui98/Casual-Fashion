@@ -5,6 +5,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SortByComponent } from './components/sortBy/sortBy.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilterByComponent } from './components/filterBy/filterBy.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CatalogComponent,
     CategoryComponent,
     SortByComponent,
+    FilterByComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [
@@ -19,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CatalogComponent,
     CategoryComponent,
     SortByComponent,
+    FilterByComponent,
   ],
 })
 export class SharedModule {}
