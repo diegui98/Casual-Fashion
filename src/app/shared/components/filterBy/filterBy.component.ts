@@ -11,6 +11,8 @@ export class FilterByComponent implements OnInit {
   productList?: ProductCard[];
   @Output()
   colorFilterChanged: EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  priceToFilter: EventEmitter<number> = new EventEmitter<number>();
 
   clickedFilter: boolean = false;
   colorList: string[] = ['red', 'green', 'black', 'blue'];
@@ -33,5 +35,10 @@ export class FilterByComponent implements OnInit {
     }
     this.activeColor = i;
     this.colorFilterChanged.emit(color);
+  }
+
+  filterPrice(event: any): void {
+    let value = event.target.value;
+    this.priceToFilter.emit(value);
   }
 }

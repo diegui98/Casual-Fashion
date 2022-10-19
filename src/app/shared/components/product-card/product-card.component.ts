@@ -20,6 +20,8 @@ export class ProductCardComponent implements OnInit {
   };
   @Input()
   colorFilter?: string;
+  @Input()
+  priceToFilter?: number;
 
   backgroundColor: string = 'background-color: ';
   activeColor: number = 0;

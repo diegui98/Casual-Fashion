@@ -9,6 +9,7 @@ import { ProductCard } from 'src/app/core/models/productCard';
 export class CategoryComponent implements OnInit {
   category: string = 'Category';
   colorFilter: string = 'none';
+  priceToFilter!: number;
   productList: ProductCard[] = [
     {
       name: 'Green Shirt',
@@ -50,5 +51,8 @@ export class CategoryComponent implements OnInit {
 
   selectColorFilter(color: string) {
     this.colorFilter = color;
+  }
+  selectPriceToFilter(price: number) {
+    this.priceToFilter = price;
   }
 }

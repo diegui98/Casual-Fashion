@@ -11,6 +11,8 @@ export class CatalogComponent implements OnInit {
   productList!: ProductCard[];
   @Input()
   colorFilter?: string;
+  @Input()
+  priceToFilter?: number;
 
   constructor() {}
 

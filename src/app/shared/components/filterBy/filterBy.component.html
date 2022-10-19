@@ -9,9 +9,11 @@
   <div style="display: flex; width: 100%">
     <label style="margin-right: 4px">Price:</label>
     <input
+      name="price"
       style="flex-grow: 1; width: inherit"
       type="number"
       placeholder=". . ."
+      (change)="filterPrice($event)"
     />
   </div>
   <div style="display: flex; width: 100%">
