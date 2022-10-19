@@ -10,14 +10,26 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class SortByComponent implements OnInit {
   @Input()
-  productList?: ProductCard[];
+  productList!: ProductCard[];
+
+  @Output()
+  backToNewProductList: EventEmitter<ProductCard[]> = new EventEmitter();
+
+  sortByNewList!: ProductCard[];
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sortByNewList = this.productList.slice();
+    console.log(this.sortByNewList);
+  }
 
   orderList(event: any) {
     let value = event.target.value;
+    if (value == 'new') {
+      console.log(this.sortByNewList);
+      this.backToNewProductList.emit(this.sortByNewList);
+    }
     if (value == 'A-Z') {
       this.productList?.sort(this.dynamicSort('name'));
     }

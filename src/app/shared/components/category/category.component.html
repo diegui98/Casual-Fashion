@@ -14,7 +14,11 @@
       [productList]="productList"
       style="flex-shrink: 1; width: 30%"
     ></app-filterBy>
-    <app-sortBy [productList]="productList" style="flex-shrink: 1"></app-sortBy>
+    <app-sortBy
+      (backToNewProductList)="backToNewProductList($event)"
+      [productList]="productList"
+      style="flex-shrink: 1"
+    ></app-sortBy>
   </div>
 </div>
 

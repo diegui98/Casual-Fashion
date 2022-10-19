@@ -55,4 +55,7 @@ export class CategoryComponent implements OnInit {
   selectPriceToFilter(price: number) {
     this.priceToFilter = price;
   }
+  backToNewProductList(productList: ProductCard[]) {
+    this.productList = productList.slice();
+  }
 }
