@@ -8,7 +8,9 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class CatalogComponent implements OnInit {
   @Input()
-  productList: ProductCard[] = [];
+  productList!: ProductCard[];
+  @Input()
+  colorFilter?: string;
 
   constructor() {}
 

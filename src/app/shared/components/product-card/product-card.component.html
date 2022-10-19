@@ -1,4 +1,10 @@
-<div>
+<div
+  *ngIf="
+    colorFilter == 'none' ||
+    this.product.image[0].color == colorFilter ||
+    this.product.image[1]?.color == colorFilter
+  "
+>
   <div style="position: relative; top: 0; left: 0">
     <img
       alt="Product"

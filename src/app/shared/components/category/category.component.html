@@ -9,6 +9,7 @@
   </div>
   <div style="display: flex; justify-content: space-between">
     <app-filterBy
+      (colorFilterChanged)="selectColorFilter($event)"
       [productList]="productList"
       style="flex-shrink: 1; width: 30%"
     ></app-filterBy>
@@ -17,5 +18,8 @@
 </div>
 
 <div class="container">
-  <app-catalog [productList]="productList"></app-catalog>
+  <app-catalog
+    [colorFilter]="colorFilter"
+    [productList]="productList"
+  ></app-catalog>
 </div>

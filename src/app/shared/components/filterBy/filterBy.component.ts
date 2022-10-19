@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductCard } from 'src/app/core/models/productCard';
 
 @Component({
@@ -9,11 +9,13 @@ import { ProductCard } from 'src/app/core/models/productCard';
 export class FilterByComponent implements OnInit {
   @Input()
   productList?: ProductCard[];
+  @Output()
+  colorFilterChanged: EventEmitter<string> = new EventEmitter<string>();
 
   clickedFilter: boolean = false;
   colorList: string[] = ['red', 'green', 'black', 'blue'];
   backgroundColor: string = 'background-color: ';
-  activeColor: number = 0;
+  activeColor: number = -1;
 
   constructor() {}
 
@@ -24,6 +26,12 @@ export class FilterByComponent implements OnInit {
   }
 
   selectColor(color: string, i: number): void {
+    if (this.activeColor == i) {
+      this.activeColor = -1;
+      this.colorFilterChanged.emit('none');
+      return;
+    }
     this.activeColor = i;
+    this.colorFilterChanged.emit(color);
   }
 }

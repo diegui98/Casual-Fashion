@@ -18,14 +18,19 @@ export class ProductCardComponent implements OnInit {
     sale: false,
     inStock: false,
   };
+  @Input()
+  colorFilter?: string;
+
   backgroundColor: string = 'background-color: ';
   activeColor: number = 0;
   imagePath: string = '../../../../assets/';
-  imageSrc: string = this.imagePath + this.product.image[0].image[0];
+  imageSrc?: string;
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.imageSrc = this.imagePath + this.product?.image[0].image[0];
+  }
 
   selectColor(i: number): void {
     this.activeColor = i;

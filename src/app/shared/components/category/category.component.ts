@@ -8,6 +8,7 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class CategoryComponent implements OnInit {
   category: string = 'Category';
+  colorFilter: string = 'none';
   productList: ProductCard[] = [
     {
       name: 'Green Shirt',
@@ -28,14 +29,14 @@ export class CategoryComponent implements OnInit {
     },
     {
       name: 'Red Shoes',
-      image: [{ image: ['noimage.jpg', 'noimage2.png'], color: 'Red' }],
+      image: [{ image: ['noimage.jpg', 'noimage2.png'], color: 'red' }],
       price: 120,
       sale: false,
       inStock: false,
     },
     {
       name: 'Black Hat',
-      image: [{ image: ['noimage.jpg', 'noimage2.png'], color: 'Black' }],
+      image: [{ image: ['noimage.jpg', 'noimage2.png'], color: 'black' }],
       price: 40,
       sale: true,
       inStock: true,
@@ -46,4 +47,8 @@ export class CategoryComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  selectColorFilter(color: string) {
+    this.colorFilter = color;
+  }
 }
