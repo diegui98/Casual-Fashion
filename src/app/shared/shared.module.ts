@@ -6,6 +6,8 @@ import { CategoryComponent } from './components/category/category.component';
 import { SortByComponent } from './components/sortBy/sortBy.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FilterByComponent } from './components/filterBy/filterBy.component';
+import { RouterModule } from '@angular/router';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -14,14 +16,16 @@ import { FilterByComponent } from './components/filterBy/filterBy.component';
     CategoryComponent,
     SortByComponent,
     FilterByComponent,
+    ProductDetailsComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   exports: [
     ProductCardComponent,
     CatalogComponent,
     CategoryComponent,
     SortByComponent,
     FilterByComponent,
+    ProductDetailsComponent,
   ],
 })
 export class SharedModule {}

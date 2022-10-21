@@ -22,6 +22,7 @@ export class StoreComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    //gets category from path query params
     const params = this.route.snapshot.queryParamMap.get('category');
     if (params == null) {
       this.category = this.defaultCategory;

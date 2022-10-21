@@ -21,13 +21,11 @@ export class SortByComponent implements OnInit {
 
   ngOnInit() {
     this.sortByNewList = this.productList.slice();
-    console.log(this.sortByNewList);
   }
 
   orderList(event: any) {
     let value = event.target.value;
     if (value == 'new') {
-      console.log(this.sortByNewList);
       this.backToNewProductList.emit(this.sortByNewList);
     }
     if (value == 'A-Z') {

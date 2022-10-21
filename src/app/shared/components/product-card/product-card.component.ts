@@ -9,7 +9,7 @@ import { ProductCard } from 'src/app/core/models/productCard';
 export class ProductCardComponent implements OnInit {
   @Input()
   product: ProductCard = {
-    name: 'Product Name',
+    name: 'Missing Product',
     image: [
       { image: ['noimage.jpg', 'noimage2.png'], color: 'blue' },
       { image: ['noimage2.png'], color: 'green' },
@@ -22,6 +22,8 @@ export class ProductCardComponent implements OnInit {
   colorFilter?: string;
   @Input()
   priceToFilter?: number;
+  @Input()
+  detailsMode?: boolean = false;
 
   backgroundColor: string = 'background-color: ';
   activeColor: number = 0;
