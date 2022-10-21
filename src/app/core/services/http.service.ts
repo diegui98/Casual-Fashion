@@ -9,7 +9,7 @@ import { ProductOverview } from '../models/productOverview';
 export class HttpService {
   public allProductsList: ProductOverview[] = [
     {
-      category: 'summer',
+      category: 'Summer',
       productList: [
         {
           name: 'Green Shirt',
@@ -51,7 +51,7 @@ export class HttpService {
       ],
     },
     {
-      category: 'winter',
+      category: 'Winter',
       productList: [
         {
           name: 'Green sweater',

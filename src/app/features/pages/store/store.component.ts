@@ -14,7 +14,7 @@ export class StoreComponent implements OnInit {
   productList!: ProductCard[];
   productOverviewList!: ProductOverview;
   category!: string;
-  defaultCategory: string = 'summer';
+  defaultCategory: string = 'Summer';
 
   constructor(
     private storeService: StoreService,

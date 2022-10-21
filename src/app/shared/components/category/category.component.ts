@@ -10,7 +10,9 @@ export class CategoryComponent implements OnInit {
   @Input()
   productList!: ProductCard[];
 
+  @Input()
   category: string = 'Category';
+
   colorFilter: string = 'none';
   priceToFilter!: number;
   orderedList!: ProductCard[] | undefined;
