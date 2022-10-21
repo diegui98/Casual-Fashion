@@ -22,7 +22,25 @@ export class ProductDetailsComponent implements OnInit {
     size: [1, 2, 3],
   };
 
+  activeSize: number = -1;
+  buyAmount: number = 0;
+
   constructor() {}
 
   ngOnInit() {}
+
+  selectSize(i: number) {
+    this.activeSize = i;
+  }
+
+  removeAmount() {
+    if (this.buyAmount == 0) {
+      return;
+    }
+    this.buyAmount -= 1;
+  }
+
+  addAmount() {
+    this.buyAmount += 1;
+  }
 }
