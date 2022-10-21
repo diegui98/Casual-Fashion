@@ -7,7 +7,7 @@ import { StoreComponent } from './pages/store/store.component';
 
 @NgModule({
   declarations: [HomeComponent, StoreComponent],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, RouterModule],
   exports: [RouterModule, StoreComponent],
   providers: [CurrencyPipe],
 })
