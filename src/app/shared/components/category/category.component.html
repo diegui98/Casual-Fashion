@@ -7,7 +7,9 @@
     ><span class="categorySpacer">></span
     ><a class="categoryLink">{{ category }}</a>
   </div>
-  <div style="display: flex; justify-content: space-between">
+  <div
+    style="display: flex; justify-content: space-between; margin-bottom: 4px"
+  >
     <app-filterBy
       (colorFilterChanged)="selectColorFilter($event)"
       (priceToFilter)="selectPriceToFilter($event)"
