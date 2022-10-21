@@ -1,6 +1,6 @@
-import { ProductCard } from './productCard';
+import { Product } from './product';
 
 export interface ProductOverview {
   category: string;
-  productList: ProductCard[];
+  productList: Product[];
 }

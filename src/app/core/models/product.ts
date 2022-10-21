@@ -1,4 +1,4 @@
-export interface ProductCard {
+export interface Product {
   name: string;
   image: {
     image: string[];
@@ -7,4 +7,5 @@ export interface ProductCard {
   price: number;
   sale: boolean;
   inStock: boolean;
+  size: number[];
 }

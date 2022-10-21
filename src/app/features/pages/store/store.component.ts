@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { subscribeOn } from 'rxjs';
 import { ProductOverview } from 'src/app/core/models/productOverview';
-import { ProductCard } from 'src/app/core/models/productCard';
+import { Product } from 'src/app/core/models/product';
 import { StoreService } from '../../services/store.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./store.component.css'],
 })
 export class StoreComponent implements OnInit {
-  productList!: ProductCard[];
+  productList!: Product[];
   productOverviewList!: ProductOverview;
   category!: string;
   defaultCategory: string = 'Summer';

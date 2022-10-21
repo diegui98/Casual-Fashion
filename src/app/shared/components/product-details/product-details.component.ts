@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductCard } from 'src/app/core/models/productCard';
+import { Product } from 'src/app/core/models/product';
 
 @Component({
   selector: 'app-product-details',
@@ -8,7 +8,9 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class ProductDetailsComponent implements OnInit {
   @Input()
-  product: ProductCard = {
+  category: string = 'Summer';
+  @Input()
+  product: Product = {
     name: 'Product Name',
     image: [
       { image: ['noimage.jpg', 'noimage2.png'], color: 'blue' },
@@ -17,6 +19,7 @@ export class ProductDetailsComponent implements OnInit {
     price: 0,
     sale: false,
     inStock: false,
+    size: [1, 2, 3],
   };
 
   constructor() {}

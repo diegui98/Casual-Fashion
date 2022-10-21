@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductCard } from 'src/app/core/models/productCard';
+import { Product } from 'src/app/core/models/product';
 
 @Component({
   selector: 'app-catalog',
@@ -8,7 +8,7 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class CatalogComponent implements OnInit {
   @Input()
-  productList!: ProductCard[];
+  productList!: Product[];
   @Input()
   colorFilter?: string;
   @Input()

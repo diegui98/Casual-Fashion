@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductCard } from 'src/app/core/models/productCard';
+import { Product } from 'src/app/core/models/product';
 
 @Component({
   selector: 'app-category',
@@ -8,14 +8,14 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class CategoryComponent implements OnInit {
   @Input()
-  productList!: ProductCard[];
+  productList!: Product[];
 
   @Input()
   category: string = 'Category';
 
   colorFilter: string = 'none';
   priceToFilter!: number;
-  orderedList!: ProductCard[] | undefined;
+  orderedList!: Product[] | undefined;
 
   constructor() {}
 
@@ -27,7 +27,7 @@ export class CategoryComponent implements OnInit {
   selectPriceToFilter(price: number) {
     this.priceToFilter = price;
   }
-  backToNewProductList(productList: ProductCard[]) {
+  backToNewProductList(productList: Product[]) {
     this.productList = productList.slice();
   }
 }

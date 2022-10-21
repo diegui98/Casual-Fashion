@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductCard } from 'src/app/core/models/productCard';
+import { Product } from 'src/app/core/models/product';
 
 @Component({
   selector: 'app-product-card',
@@ -8,7 +8,7 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class ProductCardComponent implements OnInit {
   @Input()
-  product: ProductCard = {
+  product: Product = {
     name: 'Missing Product',
     image: [
       { image: ['noimage.jpg', 'noimage2.png'], color: 'blue' },
@@ -17,6 +17,7 @@ export class ProductCardComponent implements OnInit {
     price: 0,
     sale: false,
     inStock: false,
+    size: [1, 2, 3],
   };
   @Input()
   colorFilter?: string;

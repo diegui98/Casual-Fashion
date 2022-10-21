@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ProductCard } from 'src/app/core/models/productCard';
+import { Product } from 'src/app/core/models/product';
 
 @Component({
   selector: 'app-filterBy',
@@ -8,7 +8,7 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class FilterByComponent implements OnInit {
   @Input()
-  productList?: ProductCard[];
+  productList?: Product[];
   @Output()
   colorFilterChanged: EventEmitter<string> = new EventEmitter<string>();
   @Output()

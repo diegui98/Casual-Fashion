@@ -1,7 +1,7 @@
 import { outputAst } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ProductCard } from 'src/app/core/models/productCard';
+import { Product } from 'src/app/core/models/product';
 
 @Component({
   selector: 'app-sortBy',
@@ -10,12 +10,12 @@ import { ProductCard } from 'src/app/core/models/productCard';
 })
 export class SortByComponent implements OnInit {
   @Input()
-  productList!: ProductCard[];
+  productList!: Product[];
 
   @Output()
-  backToNewProductList: EventEmitter<ProductCard[]> = new EventEmitter();
+  backToNewProductList: EventEmitter<Product[]> = new EventEmitter();
 
-  sortByNewList!: ProductCard[];
+  sortByNewList!: Product[];
 
   constructor() {}
 

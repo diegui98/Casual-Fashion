@@ -26,6 +26,7 @@ export class HttpService {
           price: 80,
           sale: false,
           inStock: true,
+          size: [1, 2, 3],
         },
         {
           name: 'Blue Pants',
@@ -33,6 +34,7 @@ export class HttpService {
           price: 100,
           sale: false,
           inStock: true,
+          size: [1, 2],
         },
         {
           name: 'Red Shoes',
@@ -40,6 +42,7 @@ export class HttpService {
           price: 120,
           sale: false,
           inStock: false,
+          size: [1, 2, 3],
         },
         {
           name: 'Black Hat',
@@ -47,6 +50,7 @@ export class HttpService {
           price: 40,
           sale: true,
           inStock: true,
+          size: [1, 2, 3, 4],
         },
       ],
     },
@@ -68,6 +72,7 @@ export class HttpService {
           price: 80,
           sale: false,
           inStock: true,
+          size: [1, 2, 3],
         },
         {
           name: 'Blue jacket',
@@ -75,6 +80,7 @@ export class HttpService {
           price: 100,
           sale: false,
           inStock: true,
+          size: [1, 2, 3],
         },
         {
           name: 'Red gloves',
@@ -82,6 +88,7 @@ export class HttpService {
           price: 120,
           sale: false,
           inStock: false,
+          size: [1],
         },
         {
           name: 'Black slippers',
@@ -89,6 +96,7 @@ export class HttpService {
           price: 40,
           sale: true,
           inStock: true,
+          size: [1, 2],
         },
       ],
     },
