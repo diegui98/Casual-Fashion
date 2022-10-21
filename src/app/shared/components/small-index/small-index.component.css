@@ -1,0 +1,15 @@
+.categorySpacer {
+    margin-left: 4px;
+    margin-right: 4px;
+    font-style: italic;
+    font-size: small;
+    color: mediumvioletred;
+}
+
+.categoryLink {
+    font-style: italic;
+    font-size: small;
+    color: mediumvioletred;
+    text-decoration: none;
+    cursor: pointer;
+}

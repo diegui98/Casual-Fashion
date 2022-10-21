@@ -2,11 +2,7 @@
   <h1 class="display-1" style="text-align: center; margin-bottom: 20px">
     {{ category }}
   </h1>
-  <div>
-    <a [routerLink]="['/Home']" class="categoryLink">Home</a
-    ><span class="categorySpacer">></span
-    ><a class="categoryLink">{{ category }}</a>
-  </div>
+  <app-small-index [category]="category"></app-small-index>
   <div
     style="display: flex; justify-content: space-between; margin-bottom: 4px"
   >
