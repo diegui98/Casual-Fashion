@@ -3,9 +3,9 @@ export interface Product {
   image: {
     image: string[];
     color: string;
+    size: number[];
   }[];
   price: number;
   sale: boolean;
   inStock: boolean;
-  size: number[];
 }

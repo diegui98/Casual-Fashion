@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/core/models/product';
 
 @Component({
@@ -11,13 +11,16 @@ export class ProductCardComponent implements OnInit {
   product: Product = {
     name: 'Missing Product',
     image: [
-      { image: ['noimage.jpg', 'noimage2.png'], color: 'blue' },
-      { image: ['noimage2.png'], color: 'green' },
+      {
+        image: ['noimage.jpg', 'noimage2.png'],
+        color: 'blue',
+        size: [1, 2, 3],
+      },
+      { image: ['noimage2.png'], color: 'green', size: [1, 2] },
     ],
     price: 0,
     sale: false,
     inStock: false,
-    size: [1, 2, 3],
   };
   @Input()
   colorFilter?: string;
@@ -25,6 +28,8 @@ export class ProductCardComponent implements OnInit {
   priceToFilter?: number;
   @Input()
   detailsMode?: boolean = false;
+  @Output()
+  colorChanged: EventEmitter<number> = new EventEmitter<number>();
 
   backgroundColor: string = 'background-color: ';
   activeColor: number = 0;
@@ -40,6 +45,9 @@ export class ProductCardComponent implements OnInit {
   selectColor(i: number): void {
     this.activeColor = i;
     this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
+    if (this.detailsMode) {
+      this.colorChanged.emit(this.activeColor);
+    }
   }
 
   swapImage(): void {

@@ -3,12 +3,16 @@
   [detailsMode]="true"
   [productName]="product.name"
 ></app-small-index>
-<app-product-card [product]="product" [detailsMode]="true"></app-product-card>
+<app-product-card
+  [product]="product"
+  [detailsMode]="true"
+  (colorChanged)="colorChanged($event)"
+></app-product-card>
 <div>
   Size
   <ul class="list-group list-group-horizontal">
     <li
-      *ngFor="let size of product.size; index as i"
+      *ngFor="let size of product.image[imageIndex].size; index as i"
       [ngClass]="{ active: i == activeSize }"
       class="list-group-item"
       aria-current="true"
@@ -22,17 +26,18 @@
 <div>
   Amount
   <div class="btn-group" role="group" aria-label="Basic outlined example">
-    <button
-      type="button"
-      class="btn btn-outline-primary"
-      (click)="removeAmount()"
-    >
+    <button type="button" class="btn btn-dark" (click)="removeAmount()">
       -
     </button>
-    <button class="btn btn-outline-primary disabled">{{ buyAmount }}</button>
-    <button type="button" class="btn btn-outline-primary" (click)="addAmount()">
-      +
+    <button class="btn btn-outline-dark" style="pointer-events: none">
+      {{ buyAmount }}
     </button>
+    <button type="button" class="btn btn-dark" (click)="addAmount()">+</button>
   </div>
 </div>
-<button class="btn btn-success">Buy!</button>
+<button class="btn btn-success" [ngClass]="{ disabled: activeSize == -1 }">
+  Buy!
+</button>
+<div class="text-danger" *ngIf="activeSize == -1">
+  Please choose a username.
+</div>

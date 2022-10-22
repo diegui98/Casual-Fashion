@@ -13,17 +13,21 @@ export class ProductDetailsComponent implements OnInit {
   product: Product = {
     name: 'Product Name',
     image: [
-      { image: ['noimage.jpg', 'noimage2.png'], color: 'blue' },
-      { image: ['noimage2.png'], color: 'green' },
+      {
+        image: ['noimage.jpg', 'noimage2.png'],
+        color: 'blue',
+        size: [1, 2, 3],
+      },
+      { image: ['noimage2.png'], color: 'green', size: [1, 2] },
     ],
     price: 0,
     sale: false,
     inStock: false,
-    size: [1, 2, 3],
   };
 
+  imageIndex: number = 0;
   activeSize: number = -1;
-  buyAmount: number = 0;
+  buyAmount: number = 1;
 
   constructor() {}
 
@@ -34,7 +38,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   removeAmount() {
-    if (this.buyAmount == 0) {
+    if (this.buyAmount == 1) {
       return;
     }
     this.buyAmount -= 1;
@@ -42,5 +46,9 @@ export class ProductDetailsComponent implements OnInit {
 
   addAmount() {
     this.buyAmount += 1;
+  }
+
+  colorChanged(i: number) {
+    this.imageIndex = i;
   }
 }
