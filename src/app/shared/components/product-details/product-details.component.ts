@@ -28,10 +28,14 @@ export class ProductDetailsComponent implements OnInit {
   imageIndex: number = 0;
   activeSize: number = -1;
   buyAmount: number = 1;
+  imagePath: string = '../../../../assets/';
+  imageSrc?: string;
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.imageSrc = this.imagePath + this.product?.image[0].image[0];
+  }
 
   selectSize(i: number) {
     this.activeSize = i;
@@ -50,5 +54,21 @@ export class ProductDetailsComponent implements OnInit {
 
   colorChanged(i: number) {
     this.imageIndex = i;
+  }
+
+  swapImage(): void {
+    if (
+      this.product.image[this.imageIndex].image[1] &&
+      this.imageSrc ==
+        this.imagePath + this.product.image[this.imageIndex].image[0]
+    ) {
+      this.imageSrc =
+        this.imagePath + this.product.image[this.imageIndex].image[1];
+      return;
+    }
+    if (this.product.image[this.imageIndex].image[1]) {
+      this.imageSrc =
+        this.imagePath + this.product.image[this.imageIndex].image[0];
+    }
   }
 }

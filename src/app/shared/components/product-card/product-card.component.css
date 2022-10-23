@@ -19,3 +19,15 @@
 .active {
     border: 1px solid;
 }
+
+.infoDetailsMode{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important
+}
+
+.infoNoDetailsMode {
+    display: flex; 
+    align-items: center; 
+    height: 26px
+}

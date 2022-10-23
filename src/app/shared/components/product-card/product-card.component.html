@@ -7,7 +7,7 @@
       (!this.priceToFilter || this.product.price < this.priceToFilter))
   "
 >
-  <div style="position: relative; top: 0; left: 0">
+  <div *ngIf="!detailsMode" style="position: relative; top: 0; left: 0">
     <img
       alt="Product"
       [src]="imageSrc"
@@ -24,8 +24,18 @@
     />
   </div>
   <div>
-    <div style="display: flex; align-items: center; height: 26px">
+    <div
+      [ngClass]="{
+        infoDetailsMode: detailsMode,
+        infoNoDetailsMode: !detailsMode
+      }"
+    >
       <div style="flex-grow: 1">{{ product.name }}</div>
+      <div *ngIf="detailsMode" style="font-weight: bold">
+        <span *ngIf="product.inStock">$</span
+        ><span *ngIf="product.inStock">{{ product.price }}</span
+        ><span *ngIf="!product.inStock">Sold Out</span>
+      </div>
       <div style="flex-grow: 1; display: flex; justify-content: flex-end">
         <div *ngFor="let image of product.image; index as i">
           <div
@@ -41,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div style="font-weight: bold">
+    <div *ngIf="!detailsMode" style="font-weight: bold">
       <span *ngIf="product.inStock">$</span
       ><span *ngIf="product.inStock">{{ product.price }}</span
       ><span *ngIf="!product.inStock">Sold Out</span>

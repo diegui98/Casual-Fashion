@@ -1,43 +1,79 @@
-<app-small-index
-  [category]="category"
-  [detailsMode]="true"
-  [productName]="product.name"
-></app-small-index>
-<app-product-card
-  [product]="product"
-  [detailsMode]="true"
-  (colorChanged)="colorChanged($event)"
-></app-product-card>
-<div>
-  Size
-  <ul class="list-group list-group-horizontal">
-    <li
-      *ngFor="let size of product.image[imageIndex].size; index as i"
-      [ngClass]="{ active: i == activeSize }"
-      class="list-group-item"
-      aria-current="true"
-      (click)="selectSize(i)"
-      style="cursor: pointer"
-    >
-      {{ size }}
-    </li>
-  </ul>
-</div>
-<div>
-  Amount
-  <div class="btn-group" role="group" aria-label="Basic outlined example">
-    <button type="button" class="btn btn-dark" (click)="removeAmount()">
-      -
-    </button>
-    <button class="btn btn-outline-dark" style="pointer-events: none">
-      {{ buyAmount }}
-    </button>
-    <button type="button" class="btn btn-dark" (click)="addAmount()">+</button>
+<div class="container" style="display: flex">
+  <div
+    class="col-8"
+    style="position: relative; top: 0; left: 0; padding-right: 10px"
+  >
+    <img
+      alt="Product"
+      [src]="imageSrc"
+      style="width: 100%; height: 100%"
+      (mouseover)="swapImage()"
+      (mouseout)="swapImage()"
+      style="position: relative; top: 0; left: 0; width: 100%"
+    />
+    <img
+      *ngIf="product.sale"
+      alt="Sale"
+      src="../../../../assets/discount.png"
+      style="position: absolute; top: 0; left: 0; width: 12%"
+    />
   </div>
-</div>
-<button class="btn btn-success" [ngClass]="{ disabled: activeSize == -1 }">
-  Buy!
-</button>
-<div class="text-danger" *ngIf="activeSize == -1">
-  Please choose a username.
+  <div class="col-4">
+    <div class="mb-15">
+      <app-small-index
+        [category]="category"
+        [detailsMode]="true"
+        [productName]="product.name"
+        class="mb-15"
+      ></app-small-index>
+    </div>
+    <div class="mb-15">
+      <app-product-card
+        [product]="product"
+        [detailsMode]="true"
+        (colorChanged)="colorChanged($event)"
+      ></app-product-card>
+    </div>
+
+    <div class="mb-15">
+      Size
+      <ul class="list-group list-group-horizontal">
+        <li
+          *ngFor="let size of product.image[imageIndex].size; index as i"
+          [ngClass]="{ active: i == activeSize }"
+          class="list-group-item"
+          aria-current="true"
+          (click)="selectSize(i)"
+          style="cursor: pointer"
+        >
+          {{ size }}
+        </li>
+      </ul>
+    </div>
+    <div class="mb-15">
+      <div>Amount</div>
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <button type="button" class="btn btn-dark" (click)="removeAmount()">
+          -
+        </button>
+        <button class="btn btn-outline-dark" style="pointer-events: none">
+          {{ buyAmount }}
+        </button>
+        <button type="button" class="btn btn-dark" (click)="addAmount()">
+          +
+        </button>
+      </div>
+    </div>
+
+    <button
+      class="btn btn-success"
+      [ngClass]="{ disabled: activeSize == -1 }"
+      style="width: 100%"
+    >
+      Buy!
+    </button>
+    <div class="text-danger" *ngIf="activeSize == -1">
+      Please choose a size.
+    </div>
+  </div>
 </div>
