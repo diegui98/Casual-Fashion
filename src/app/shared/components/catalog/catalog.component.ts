@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/core/models/product';
 
 @Component({
@@ -13,8 +14,16 @@ export class CatalogComponent implements OnInit {
   colorFilter?: string;
   @Input()
   priceToFilter?: number;
+  @Input()
+  category?: string;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  goToDetails(i: number) {
+    this.router.navigate(['/Store/Details'], {
+      queryParams: { category: this.category, id: i },
+    });
+  }
 }

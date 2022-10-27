@@ -11,11 +11,23 @@ export class StoreService {
   getCategoryList(category: string): any {
     let productListByCategory;
     let allProductsList = this.http.allProductsList;
-    for (let product of allProductsList) {
-      if (product.category === category) {
-        productListByCategory = product;
+    for (let productList of allProductsList) {
+      if (productList.category === category) {
+        productListByCategory = productList;
       }
     }
     return productListByCategory;
+  }
+
+  getProductById(category: string, id: string): any {
+    let productById: Product;
+    let productList = this.getCategoryList(category);
+    console.log(productList);
+    for (let product of productList) {
+      if (product.id == id) {
+        productById = product;
+        return productById;
+      }
+    }
   }
 }

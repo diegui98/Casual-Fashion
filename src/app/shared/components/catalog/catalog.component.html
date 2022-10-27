@@ -1,9 +1,10 @@
 <div class="catalog">
   <app-product-card
     class="productCard"
-    *ngFor="let product of productList"
+    *ngFor="let product of productList; index as i"
     [product]="product"
     [colorFilter]="colorFilter"
     [priceToFilter]="priceToFilter"
+    (click)="goToDetails(i)"
   ></app-product-card>
 </div>
