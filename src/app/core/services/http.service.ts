@@ -12,6 +12,7 @@ export class HttpService {
       category: 'Summer',
       productList: [
         {
+          id: 1,
           name: 'Green Shirt',
           image: [
             {
@@ -30,6 +31,7 @@ export class HttpService {
           inStock: true,
         },
         {
+          id: 2,
           name: 'Blue Pants',
           image: [
             {
@@ -43,6 +45,7 @@ export class HttpService {
           inStock: true,
         },
         {
+          id: 3,
           name: 'Red Shoes',
           image: [
             {
@@ -56,6 +59,7 @@ export class HttpService {
           inStock: false,
         },
         {
+          id: 4,
           name: 'Black Hat',
           image: [
             {
@@ -74,6 +78,7 @@ export class HttpService {
       category: 'Winter',
       productList: [
         {
+          id: 5,
           name: 'Green sweater',
           image: [
             {
@@ -92,6 +97,7 @@ export class HttpService {
           inStock: true,
         },
         {
+          id: 6,
           name: 'Blue jacket',
           image: [
             {
@@ -105,6 +111,7 @@ export class HttpService {
           inStock: true,
         },
         {
+          id: 7,
           name: 'Red gloves',
           image: [
             { image: ['noimage.jpg', 'noimage2.png'], color: 'red', size: [1] },
@@ -114,6 +121,7 @@ export class HttpService {
           inStock: false,
         },
         {
+          id: 8,
           name: 'Black slippers',
           image: [
             {

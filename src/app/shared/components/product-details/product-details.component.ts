@@ -11,6 +11,7 @@ export class ProductDetailsComponent implements OnInit {
   category: string = 'Summer';
   @Input()
   product: Product = {
+    id: 0,
     name: 'Product Name',
     image: [
       {
@@ -54,6 +55,7 @@ export class ProductDetailsComponent implements OnInit {
 
   colorChanged(i: number) {
     this.imageIndex = i;
+    this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
   }
 
   swapImage(): void {

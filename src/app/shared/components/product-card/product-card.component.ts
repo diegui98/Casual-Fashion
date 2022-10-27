@@ -9,6 +9,7 @@ import { Product } from 'src/app/core/models/product';
 export class ProductCardComponent implements OnInit {
   @Input()
   product: Product = {
+    id: 0,
     name: 'Missing Product',
     image: [
       {
