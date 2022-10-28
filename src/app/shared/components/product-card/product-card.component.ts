@@ -32,9 +32,10 @@ export class ProductCardComponent implements OnInit {
   detailsMode?: boolean = false;
   @Output()
   colorChanged: EventEmitter<number> = new EventEmitter<number>();
+  @Input()
+  activeColor: number = 0;
 
   backgroundColor: string = 'background-color: ';
-  activeColor: number = 0;
   imagePath: string = '../../../../assets/';
   imageSrc?: string;
 
@@ -45,12 +46,10 @@ export class ProductCardComponent implements OnInit {
   }
 
   selectColor(i: number): void {
-    event?.stopImmediatePropagation();
     this.activeColor = i;
     this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
-    if (this.detailsMode) {
-      this.colorChanged.emit(this.activeColor);
-    }
+    this.colorChanged.emit(this.activeColor);
+    event?.stopImmediatePropagation();
   }
 
   swapImage(): void {

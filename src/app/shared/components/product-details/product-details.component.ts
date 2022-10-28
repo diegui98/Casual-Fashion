@@ -25,8 +25,9 @@ export class ProductDetailsComponent implements OnInit {
     sale: false,
     inStock: false,
   };
-
+  @Input()
   imageIndex: number = 0;
+
   activeSize: number = -1;
   buyAmount: number = 1;
   imagePath: string = '../../../../assets/';
@@ -35,7 +36,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.imageSrc = this.imagePath + this.product?.image[0].image[0];
+    this.imageSrc =
+      this.imagePath + this.product?.image[this.imageIndex].image[0];
   }
 
   selectSize(i: number) {

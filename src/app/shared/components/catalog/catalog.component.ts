@@ -17,13 +17,23 @@ export class CatalogComponent implements OnInit {
   @Input()
   category?: string;
 
+  imageIndex: number = 0;
+
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
   goToDetails(i: number) {
     this.router.navigate(['/Store/Details'], {
-      queryParams: { category: this.category, id: i },
+      queryParams: {
+        category: this.category,
+        id: i,
+        imageIndex: this.imageIndex,
+      },
     });
+  }
+
+  colorChanged(event: number) {
+    this.imageIndex = event;
   }
 }
