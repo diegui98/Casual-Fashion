@@ -6,11 +6,8 @@ import { StoreComponent } from './pages/store/store.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
-  {
-    path: 'Store',
-    component: StoreComponent,
-    children: [{ path: 'Details', component: DetailsComponent }],
-  },
+  { path: 'Store', component: StoreComponent },
+  { path: 'Store/Details', component: DetailsComponent },
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
 ];
 

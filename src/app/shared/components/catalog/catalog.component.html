@@ -1,10 +1,11 @@
 <div class="catalog">
   <app-product-card
     class="productCard"
-    *ngFor="let product of productList; index as i"
+    *ngFor="let product of productList"
     [product]="product"
     [colorFilter]="colorFilter"
     [priceToFilter]="priceToFilter"
-    (click)="goToDetails(i)"
+    (click)="goToDetails(product.id)"
+    style="cursor: pointer"
   ></app-product-card>
 </div>

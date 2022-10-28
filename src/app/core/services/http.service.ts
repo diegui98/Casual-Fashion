@@ -23,7 +23,7 @@ export class HttpService {
             {
               image: ['noimage.jpg', 'noimage2.png'],
               color: 'blue',
-              size: [1, 2, 3],
+              size: [1, 2],
             },
           ],
           price: 80,

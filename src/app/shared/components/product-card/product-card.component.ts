@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/core/models/product';
 
 @Component({
@@ -37,13 +38,14 @@ export class ProductCardComponent implements OnInit {
   imagePath: string = '../../../../assets/';
   imageSrc?: string;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.imageSrc = this.imagePath + this.product?.image[0].image[0];
   }
 
   selectColor(i: number): void {
+    event?.stopImmediatePropagation();
     this.activeColor = i;
     this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
     if (this.detailsMode) {

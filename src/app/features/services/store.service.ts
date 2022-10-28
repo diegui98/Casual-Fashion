@@ -11,9 +11,9 @@ export class StoreService {
   getCategoryList(category: string): any {
     let productListByCategory;
     let allProductsList = this.http.allProductsList;
-    for (let productList of allProductsList) {
-      if (productList.category === category) {
-        productListByCategory = productList;
+    for (let productOverview of allProductsList) {
+      if (productOverview.category === category) {
+        productListByCategory = productOverview;
       }
     }
     return productListByCategory;
@@ -21,8 +21,8 @@ export class StoreService {
 
   getProductById(category: string, id: string): any {
     let productById: Product;
-    let productList = this.getCategoryList(category);
-    console.log(productList);
+    let productOverview = this.getCategoryList(category);
+    let productList = productOverview.productList;
     for (let product of productList) {
       if (product.id == id) {
         productById = product;
