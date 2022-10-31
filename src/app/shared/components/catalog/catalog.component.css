@@ -10,10 +10,11 @@
     flex-shrink: 0;
     flex-basis: 30%;
     margin-bottom: 20px;
-    transition: 1s;
+    transition: 0.25s;
+    padding: 3px;
 }
 
 .productCard:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 3px;
+    padding: 0px;
 }
