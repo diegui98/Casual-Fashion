@@ -1,0 +1,33 @@
+<div
+  class="d-flex flex-column flex-shrink-0 p-3 text-dark bg-light"
+  style="width: 280px"
+>
+  <a
+    href="/"
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+  >
+    <svg class="bi me-2" width="40" height="32">
+      <use xlink:href="#bootstrap"></use>
+    </svg>
+    <span class="fs-4">Categories</span>
+  </a>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li *ngFor="let category of categoriesList; index as i" class="nav-item">
+      <a
+        [routerLink]="['/Store']"
+        [queryParams]="{ category: category }"
+        class="nav-link"
+        [ngClass]="{
+          active: activeCategory == i,
+          'text-dark': activeCategory != i,
+          'text-white': activeCategory == i
+        }"
+        (click)="selectCategory(i)"
+      >
+        {{ category }}
+      </a>
+    </li>
+  </ul>
+  <hr />
+</div>

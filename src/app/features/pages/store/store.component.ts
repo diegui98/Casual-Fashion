@@ -3,7 +3,7 @@ import { subscribeOn } from 'rxjs';
 import { ProductOverview } from 'src/app/core/models/productOverview';
 import { Product } from 'src/app/core/models/product';
 import { StoreService } from '../../services/store.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -18,12 +18,15 @@ export class StoreComponent implements OnInit {
 
   constructor(
     private storeService: StoreService,
-    private route: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit() {
     //gets category from path query params
-    const params = this.route.snapshot.queryParamMap.get('category');
+    let params = this.activatedRoute.snapshot.queryParamMap.get('category');
     if (params == null) {
       this.category = this.defaultCategory;
     } else {
