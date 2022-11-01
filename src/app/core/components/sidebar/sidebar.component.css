@@ -1,0 +1,8 @@
+.active {
+    width: 280px
+}
+
+.inactive {
+    width: 0px;
+    padding: 0px !important
+}
