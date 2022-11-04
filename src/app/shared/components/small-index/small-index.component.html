@@ -1,10 +1,16 @@
 <div>
-  <a [routerLink]="['/Home']" class="categoryLink">Home</a>
+  <a
+    [routerLink]="['/Home']"
+    class="categoryLink"
+    (click)="changeSidebarCategory(-1)"
+    >Home</a
+  >
   <span class="categorySpacer">></span>
   <a
     [routerLink]="['/Store']"
     [queryParams]="{ category: category }"
     class="categoryLink"
+    (click)="changeSidebarCategory(-2)"
     >{{ category }}</a
   >
   <span *ngIf="detailsMode">

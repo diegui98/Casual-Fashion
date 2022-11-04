@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SidebarService } from 'src/app/core/services/sidebar.service';
 
 @Component({
   selector: 'app-small-index',
@@ -13,7 +14,11 @@ export class SmallIndexComponent implements OnInit {
   @Input()
   productName?: string;
 
-  constructor() {}
+  constructor(private sidebarService: SidebarService) {}
 
   ngOnInit() {}
+
+  changeSidebarCategory(i: number) {
+    this.sidebarService.setActiveCategory(i);
+  }
 }

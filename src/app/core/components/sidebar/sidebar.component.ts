@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,15 +12,21 @@ export class SidebarComponent implements OnInit {
   @Output()
   toggleSidebar: EventEmitter<void> = new EventEmitter<void>();
 
-  categoriesList: string[] = ['Summer', 'Winter', 'Pajamas'];
-  activeCategory: number = -1;
+  categoriesList!: string[];
+  activeCategory!: number;
 
-  constructor() {}
+  constructor(private sidebarService: SidebarService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.categoriesList = this.sidebarService.getCategories();
+    this.sidebarService.setActiveCategory(-1);
+    this.sidebarService.getActiveCategory().subscribe((value) => {
+      this.activeCategory = value;
+    });
+  }
 
   selectCategory(i: number) {
-    this.activeCategory = i;
+    this.sidebarService.setActiveCategory(i);
     this.toggleSidebar.emit();
   }
 }

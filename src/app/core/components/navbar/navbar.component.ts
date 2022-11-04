@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +10,15 @@ export class NavbarComponent implements OnInit {
   @Output()
   toggleSidebar: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() {}
+  constructor(private sidebarService: SidebarService) {}
 
   ngOnInit() {}
 
   toggleSideBar() {
     this.toggleSidebar.emit();
+  }
+
+  changeSidebarCategory(i: number) {
+    this.sidebarService.setActiveCategory(i);
   }
 }

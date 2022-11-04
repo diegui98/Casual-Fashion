@@ -2,7 +2,12 @@
   <button (click)="toggleSideBar()" class="navbar-toggler mg-l-5" type="button">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" [routerLink]="['/Home']">Casual Fashion</a>
+  <a
+    class="navbar-brand"
+    [routerLink]="['/Home']"
+    (click)="changeSidebarCategory(-1)"
+    >Casual Fashion</a
+  >
 
   <div class="nav-r-links">
     <a [routerLink]="['/LogIn']">Log In </a>
