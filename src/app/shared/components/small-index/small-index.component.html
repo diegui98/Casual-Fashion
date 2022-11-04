@@ -10,7 +10,7 @@
     [routerLink]="['/Store']"
     [queryParams]="{ category: category }"
     class="categoryLink"
-    (click)="changeSidebarCategory(-2)"
+    (click)="changeSidebarCategoryByCategory()"
     >{{ category }}</a
   >
   <span *ngIf="detailsMode">

@@ -18,7 +18,17 @@ export class SmallIndexComponent implements OnInit {
 
   ngOnInit() {}
 
-  changeSidebarCategory(i: number) {
+  changeSidebarCategory(i: number): void {
     this.sidebarService.setActiveCategory(i);
+  }
+
+  changeSidebarCategoryByCategory(): void {
+    let categories = this.sidebarService.getCategories();
+    for (let i = 0; i < categories.length; i++) {
+      if (categories[i] == this.category) {
+        console.log(i);
+        this.changeSidebarCategory(i);
+      }
+    }
   }
 }
