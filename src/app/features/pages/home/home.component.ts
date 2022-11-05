@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
 
   slideClicked(category: string): void {
     this.sidebarService.setActiveCategoryByCategory(category);
+    this.sidebarService.setActiveSidebar(false);
     this.router.navigate(['/Store'], { queryParams: { category: category } });
   }
 }

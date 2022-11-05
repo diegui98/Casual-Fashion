@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/core/models/product';
+import { SidebarService } from 'src/app/core/services/sidebar.service';
 
 @Component({
   selector: 'app-catalog',
@@ -19,11 +20,12 @@ export class CatalogComponent implements OnInit {
 
   imageIndex: number = 0;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private sidebarService: SidebarService) {}
 
   ngOnInit() {}
 
   goToDetails(i: number) {
+    this.sidebarService.setActiveSidebar(false);
     this.router.navigate(['/Store/Details'], {
       queryParams: {
         category: this.category,

@@ -20,9 +20,11 @@ export class SmallIndexComponent implements OnInit {
 
   changeSidebarCategory(i: number): void {
     this.sidebarService.setActiveCategory(i);
+    this.sidebarService.setActiveSidebar(false);
   }
 
   changeSidebarCategoryByCategory(): void {
     this.sidebarService.setActiveCategoryByCategory(this.category);
+    this.sidebarService.setActiveSidebar(false);
   }
 }

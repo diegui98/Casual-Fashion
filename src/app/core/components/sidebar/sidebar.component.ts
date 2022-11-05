@@ -7,10 +7,7 @@ import { SidebarService } from '../../services/sidebar.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  @Input()
   activeSidebar!: boolean;
-  @Output()
-  toggleSidebar: EventEmitter<void> = new EventEmitter<void>();
 
   categoriesList!: string[];
   activeCategory!: number;
@@ -23,10 +20,13 @@ export class SidebarComponent implements OnInit {
     this.sidebarService.getActiveCategory().subscribe((value) => {
       this.activeCategory = value;
     });
+    this.sidebarService.getActiveSidebar().subscribe((value) => {
+      this.activeSidebar = value;
+    });
   }
 
   selectCategory(i: number) {
     this.sidebarService.setActiveCategory(i);
-    this.toggleSidebar.emit();
+    this.sidebarService.toggleActiveSidebar();
   }
 }

@@ -8,8 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Casual-Fashion';
   activeSidebar: boolean = false;
-
-  toggleSideBar() {
-    this.activeSidebar = !this.activeSidebar;
-  }
 }
