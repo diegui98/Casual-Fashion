@@ -26,7 +26,6 @@ export class SmallIndexComponent implements OnInit {
     let categories = this.sidebarService.getCategories();
     for (let i = 0; i < categories.length; i++) {
       if (categories[i] == this.category) {
-        console.log(i);
         this.changeSidebarCategory(i);
       }
     }

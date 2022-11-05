@@ -9,6 +9,7 @@ import { FilterByComponent } from './components/filterBy/filterBy.component';
 import { RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { SmallIndexComponent } from './components/small-index/small-index.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SmallIndexComponent } from './components/small-index/small-index.compon
     FilterByComponent,
     ProductDetailsComponent,
     SmallIndexComponent,
+    CarouselComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   exports: [
@@ -29,6 +31,7 @@ import { SmallIndexComponent } from './components/small-index/small-index.compon
     FilterByComponent,
     ProductDetailsComponent,
     SmallIndexComponent,
+    CarouselComponent,
   ],
 })
 export class SharedModule {}

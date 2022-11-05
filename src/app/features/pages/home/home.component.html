@@ -1,4 +1,9 @@
-<p>home works!</p>
+<div style="margin-top: 35px">
+  <app-carousel
+    [carouselList]="carouselList"
+    (slideClicked)="slideClicked($event)"
+  ></app-carousel>
+</div>
 <button
   class="btn btn-primary"
   [routerLink]="['/Store']"

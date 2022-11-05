@@ -18,7 +18,6 @@ export class SidebarService {
     for (let productlist of allProductsList) {
       categories.push(productlist.category);
     }
-    console.log(categories);
     return categories;
   }
 

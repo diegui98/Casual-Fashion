@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProductOverview } from '../models/productOverview';
+import { CarouselItem } from '../models/carouselItem';
 
 @Injectable({
   providedIn: 'root',
@@ -135,6 +136,19 @@ export class HttpService {
           inStock: true,
         },
       ],
+    },
+  ];
+
+  public carouselList: CarouselItem[] = [
+    {
+      tittle: 'Summer',
+      description: 'Summer Clothes',
+      img: 'https://media.cntraveler.com/photos/5ca2606227413200230736ae/master/pass/Summer-Travel_GettyImages-1028278382.jpg',
+    },
+    {
+      tittle: 'Winter',
+      description: 'Winter Clothes',
+      img: 'https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/winter/benches-in-snow-covered-woods.jpg',
     },
   ];
 
