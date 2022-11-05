@@ -23,11 +23,6 @@ export class SmallIndexComponent implements OnInit {
   }
 
   changeSidebarCategoryByCategory(): void {
-    let categories = this.sidebarService.getCategories();
-    for (let i = 0; i < categories.length; i++) {
-      if (categories[i] == this.category) {
-        this.changeSidebarCategory(i);
-      }
-    }
+    this.sidebarService.setActiveCategoryByCategory(this.category);
   }
 }

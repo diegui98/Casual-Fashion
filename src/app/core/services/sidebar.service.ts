@@ -25,6 +25,15 @@ export class SidebarService {
     this.activeCategory.next(i);
   }
 
+  setActiveCategoryByCategory(category: string): void {
+    let categories = this.getCategories();
+    for (let i = 0; i < categories.length; i++) {
+      if (categories[i] == category) {
+        this.setActiveCategory(i);
+      }
+    }
+  }
+
   getActiveCategory(): Observable<number> {
     return this.activeCategory.asObservable();
   }

@@ -23,12 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   slideClicked(category: string): void {
-    let categories = this.sidebarService.getCategories();
-    for (let i = 0; i < categories.length; i++) {
-      if (categories[i] == category) {
-        this.sidebarService.setActiveCategory(i);
-      }
-    }
+    this.sidebarService.setActiveCategoryByCategory(category);
     this.router.navigate(['/Store'], { queryParams: { category: category } });
   }
 }
