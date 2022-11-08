@@ -1,6 +1,25 @@
 <div style="margin-top: 35px">
   <app-carousel
+    style="cursor: pointer"
     [carouselList]="carouselList"
     (slideClicked)="slideClicked($event)"
   ></app-carousel>
+  <div class="container">
+    <section class="summerSection">
+      <h3>Dreaming of Summer</h3>
+      <div>Click on your favorite!</div>
+      <app-catalog
+        [category]="'Summer'"
+        [productList]="summerList"
+      ></app-catalog>
+    </section>
+    <section class="winterSection">
+      <h3>Trendings of Winter</h3>
+      <div>Deals You'll Love</div>
+      <app-catalog
+        [category]="'Winter'"
+        [productList]="winterList"
+      ></app-catalog>
+    </section>
+  </div>
 </div>

@@ -79,6 +79,20 @@ export class HttpService {
       category: 'Winter',
       productList: [
         {
+          id: 6,
+          name: 'Blue jacket',
+          image: [
+            {
+              image: ['noimage.jpg', 'noimage2.png'],
+              color: 'blue',
+              size: [1, 2, 3],
+            },
+          ],
+          price: 100,
+          sale: false,
+          inStock: true,
+        },
+        {
           id: 5,
           name: 'Green sweater',
           image: [
@@ -94,20 +108,6 @@ export class HttpService {
             },
           ],
           price: 80,
-          sale: false,
-          inStock: true,
-        },
-        {
-          id: 6,
-          name: 'Blue jacket',
-          image: [
-            {
-              image: ['noimage.jpg', 'noimage2.png'],
-              color: 'blue',
-              size: [1, 2, 3],
-            },
-          ],
-          price: 100,
           sale: false,
           inStock: true,
         },
@@ -139,7 +139,7 @@ export class HttpService {
     },
   ];
 
-  public carouselList: CarouselItem[] = [
+  public homeCarouselList: CarouselItem[] = [
     {
       tittle: 'Summer',
       description: 'Summer Clothes',

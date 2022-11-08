@@ -12,11 +12,11 @@ export class CatalogComponent implements OnInit {
   @Input()
   productList!: Product[];
   @Input()
-  colorFilter?: string;
+  colorFilter?: string = 'none';
   @Input()
   priceToFilter?: number;
   @Input()
-  category?: string;
+  category!: string;
 
   imageIndex: number = 0;
 
