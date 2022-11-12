@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartItem } from 'src/app/core/models/cartItem';
 import { Product } from 'src/app/core/models/product';
 
 @Component({
@@ -10,21 +11,7 @@ export class ProductDetailsComponent implements OnInit {
   @Input()
   category: string = 'Summer';
   @Input()
-  product: Product = {
-    id: 0,
-    name: 'Product Name',
-    image: [
-      {
-        image: ['noimage.jpg', 'noimage2.png'],
-        color: 'blue',
-        size: [1, 2, 3],
-      },
-      { image: ['noimage2.png'], color: 'green', size: [1, 2] },
-    ],
-    price: 0,
-    sale: false,
-    inStock: false,
-  };
+  product!: Product;
   @Input()
   imageIndex: number = 0;
 
@@ -56,6 +43,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   colorChanged(i: number) {
+    this.activeSize = -1;
     this.imageIndex = i;
     this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
   }
@@ -74,5 +62,18 @@ export class ProductDetailsComponent implements OnInit {
       this.imageSrc =
         this.imagePath + this.product.image[this.imageIndex].image[0];
     }
+  }
+
+  addToCart() {
+    let cartItem: CartItem = {
+      id: this.product.id,
+      name: this.product.name,
+      image: this.imagePath + this.product.image[this.imageIndex].image[0],
+      color: this.product.image[this.imageIndex].color,
+      size: this.activeSize + 1,
+      ammount: this.buyAmount,
+      price: this.product.price,
+    };
+    console.log(cartItem);
   }
 }

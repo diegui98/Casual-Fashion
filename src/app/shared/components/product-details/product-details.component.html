@@ -67,6 +67,7 @@
     </div>
 
     <button
+      (click)="addToCart()"
       class="btn btn-success"
       [ngClass]="{ disabled: activeSize == -1 }"
       style="width: 100%"
