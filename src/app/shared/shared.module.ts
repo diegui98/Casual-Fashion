@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { SmallIndexComponent } from './components/small-index/small-index.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     SmallIndexComponent,
     CarouselComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, SweetAlert2Module],
   exports: [
     ProductCardComponent,
     CatalogComponent,

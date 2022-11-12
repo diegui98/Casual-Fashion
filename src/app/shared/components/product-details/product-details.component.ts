@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartItem } from 'src/app/core/models/cartItem';
 import { Product } from 'src/app/core/models/product';
+import { CartService } from 'src/app/features/services/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-details',
@@ -20,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
   imagePath: string = '../../../../assets/';
   imageSrc?: string;
 
-  constructor() {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
     this.imageSrc =
@@ -74,6 +77,26 @@ export class ProductDetailsComponent implements OnInit {
       ammount: this.buyAmount,
       price: this.product.price,
     };
-    console.log(cartItem);
+    this.cartService.addToCart(cartItem);
+    Swal.fire({
+      title: 'Item added!',
+      text: 'You can find your items in your cart.',
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Go to Cart!',
+      cancelButtonText: 'Keep Shooping!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/Cart']);
+      } else if (result.isDismissed) {
+        this.router.navigate(['/Store'], {
+          queryParams: {
+            category: this.category,
+          },
+        });
+      }
+    });
   }
 }
