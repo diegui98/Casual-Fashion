@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CarouselItem } from 'src/app/core/models/carouselItem';
 import { Product } from 'src/app/core/models/product';
 import { ProductOverview } from 'src/app/core/models/productOverview';
-import { HttpService } from 'src/app/core/services/http.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
-  constructor(private http: HttpService) {}
+  constructor() {}
 
   //transforms a ProductOverview[] into a small list of Product[] for the featured products in home page
   getSmallProductList(

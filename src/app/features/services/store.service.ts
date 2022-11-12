@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/core/models/product';
+import { ProductOverview } from 'src/app/core/models/productOverview';
 import { HttpService } from 'src/app/core/services/http.service';
 
 @Injectable({
@@ -8,9 +9,9 @@ import { HttpService } from 'src/app/core/services/http.service';
 export class StoreService {
   constructor(private http: HttpService) {}
 
-  getCategoryList(category: string): any {
+  getCategoryList(object: ProductOverview[], category: string): any {
     let productListByCategory;
-    let allProductsList = this.http.allProductsList;
+    let allProductsList = object;
     for (let productOverview of allProductsList) {
       if (productOverview.category === category) {
         productListByCategory = productOverview;
@@ -19,9 +20,9 @@ export class StoreService {
     return productListByCategory;
   }
 
-  getProductById(category: string, id: string): any {
+  getProductById(object: ProductOverview[], category: string, id: string): any {
     let productById: Product;
-    let productOverview = this.getCategoryList(category);
+    let productOverview = this.getCategoryList(object, category);
     let productList = productOverview.productList;
     for (let product of productList) {
       if (product.id == id) {

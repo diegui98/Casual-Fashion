@@ -4,6 +4,7 @@ import { ProductOverview } from 'src/app/core/models/productOverview';
 import { Product } from 'src/app/core/models/product';
 import { StoreService } from '../../services/store.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
   selector: 'app-store',
@@ -19,7 +20,8 @@ export class StoreComponent implements OnInit {
   constructor(
     private storeService: StoreService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private http: HttpService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -34,7 +36,14 @@ export class StoreComponent implements OnInit {
     }
 
     //gets the product list based on the category
-    this.productOverviewList = this.storeService.getCategoryList(this.category);
-    this.productList = this.productOverviewList.productList;
+    this.http.getProductsData().subscribe({
+      next: (res: ProductOverview[]) => {
+        this.productOverviewList = this.storeService.getCategoryList(
+          res,
+          this.category
+        );
+        this.productList = this.productOverviewList.productList;
+      },
+    });
   }
 }

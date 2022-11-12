@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/core/models/product';
+import { ProductOverview } from 'src/app/core/models/productOverview';
+import { HttpService } from 'src/app/core/services/http.service';
 import { StoreService } from '../../services/store.service';
 
 @Component({
@@ -17,7 +19,8 @@ export class DetailsComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private storeService: StoreService
+    private storeService: StoreService,
+    private http: HttpService
   ) {}
 
   ngOnInit() {
@@ -36,9 +39,14 @@ export class DetailsComponent implements OnInit {
       this.imageIndex = Number(imageIndexParam);
     }
 
-    this.product = this.storeService.getProductById(
-      this.category,
-      this.productId
-    );
+    this.http.getProductsData().subscribe({
+      next: (res: ProductOverview[]) => {
+        this.product = this.storeService.getProductById(
+          res,
+          this.category,
+          this.productId
+        );
+      },
+    });
   }
 }
