@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ProductOverview } from '../../models/productOverview';
+import { HttpService } from '../../services/http.service';
 import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
@@ -12,10 +14,17 @@ export class SidebarComponent implements OnInit {
   categoriesList!: string[];
   activeCategory!: number;
 
-  constructor(private sidebarService: SidebarService) {}
+  constructor(
+    private sidebarService: SidebarService,
+    private http: HttpService
+  ) {}
 
   ngOnInit() {
-    this.categoriesList = this.sidebarService.getCategories();
+    this.http.getProductsData().subscribe({
+      next: (res: ProductOverview[]) => {
+        this.categoriesList = this.sidebarService.getCategories(res);
+      },
+    });
     this.sidebarService.setActiveCategory(-1);
     this.sidebarService.getActiveCategory().subscribe((value) => {
       this.activeCategory = value;

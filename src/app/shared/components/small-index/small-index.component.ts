@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductOverview } from 'src/app/core/models/productOverview';
+import { HttpService } from 'src/app/core/services/http.service';
 import { SidebarService } from 'src/app/core/services/sidebar.service';
 
 @Component({
@@ -14,7 +16,10 @@ export class SmallIndexComponent implements OnInit {
   @Input()
   productName?: string;
 
-  constructor(private sidebarService: SidebarService) {}
+  constructor(
+    private sidebarService: SidebarService,
+    private http: HttpService
+  ) {}
 
   ngOnInit() {}
 
@@ -24,7 +29,11 @@ export class SmallIndexComponent implements OnInit {
   }
 
   changeSidebarCategoryByCategory(): void {
-    this.sidebarService.setActiveCategoryByCategory(this.category);
+    this.http.getProductsData().subscribe({
+      next: (res: ProductOverview[]) => {
+        this.sidebarService.setActiveCategoryByCategory(res, this.category);
+      },
+    });
     this.sidebarService.setActiveSidebar(false);
   }
 }

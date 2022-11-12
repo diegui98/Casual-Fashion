@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, take } from 'rxjs';
+import { ProductOverview } from '../models/productOverview';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -14,8 +15,8 @@ export class SidebarService {
     this.activeSidebar = new BehaviorSubject<boolean>(false);
   }
 
-  getCategories(): string[] {
-    let allProductsList = this.http.allProductsList;
+  getCategories(object: ProductOverview[]): string[] {
+    let allProductsList = object;
     let categories: string[] = [];
     for (let productlist of allProductsList) {
       categories.push(productlist.category);
@@ -27,8 +28,11 @@ export class SidebarService {
     this.activeCategory.next(i);
   }
 
-  setActiveCategoryByCategory(category: string): void {
-    let categories = this.getCategories();
+  setActiveCategoryByCategory(
+    object: ProductOverview[],
+    category: string
+  ): void {
+    let categories = this.getCategories(object);
     for (let i = 0; i < categories.length; i++) {
       if (categories[i] == category) {
         this.setActiveCategory(i);
