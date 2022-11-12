@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarouselItem } from 'src/app/core/models/carouselItem';
 import { Product } from 'src/app/core/models/product';
+import { ProductOverview } from 'src/app/core/models/productOverview';
+import { HttpService } from 'src/app/core/services/http.service';
 import { SidebarService } from 'src/app/core/services/sidebar.service';
 import { HomeService } from '../../services/home.service';
 
@@ -19,21 +21,28 @@ export class HomeComponent implements OnInit {
   constructor(
     private homeService: HomeService,
     private router: Router,
-    private sidebarService: SidebarService
+    private sidebarService: SidebarService,
+    private http: HttpService
   ) {}
 
   ngOnInit() {
     this.carouselList = this.homeService.getCarouselList();
 
-    this.summerList = this.homeService.getSmallProductList(
-      'Summer',
-      this.productsQuantity
-    );
-    this.winterList = this.homeService.getSmallProductList(
-      'Winter',
-      this.productsQuantity
-    );
-    console.log(this.winterList);
+    //loads the fetured items in the page
+    this.http.getProductsData().subscribe({
+      next: (res: ProductOverview[]) => {
+        this.summerList = this.homeService.getSmallProductList(
+          res,
+          'Summer',
+          this.productsQuantity
+        );
+        this.winterList = this.homeService.getSmallProductList(
+          res,
+          'Winter',
+          this.productsQuantity
+        );
+      },
+    });
   }
 
   slideClicked(category: string): void {

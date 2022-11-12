@@ -154,7 +154,9 @@ export class HttpService {
 
   constructor(private http: HttpClient) {}
 
-  public get<T>(): Observable<Object> {
-    return this.http.get('../../../assets/allProducts.json');
+  public getProductsData<T>(): Observable<ProductOverview[]> {
+    return this.http.get<ProductOverview[]>(
+      '../../../assets/productsData.json'
+    );
   }
 }

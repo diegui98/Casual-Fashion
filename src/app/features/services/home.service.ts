@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CarouselItem } from 'src/app/core/models/carouselItem';
 import { Product } from 'src/app/core/models/product';
 import { ProductOverview } from 'src/app/core/models/productOverview';
@@ -14,9 +15,14 @@ export class HomeService {
     return this.http.homeCarouselList;
   }
 
-  getSmallProductList(category: string, quantity: number): Product[] {
+  //transforms a ProductOverview[] into a small list of Product[] for the featured products in home page
+  getSmallProductList(
+    object: ProductOverview[],
+    category: string,
+    quantity: number
+  ): Product[] {
     let allProductsList: ProductOverview[];
-    allProductsList = this.http.allProductsList;
+    allProductsList = object;
     for (let productOverview of allProductsList) {
       if (productOverview.category == category) {
         let productListByCategory: Product[];
