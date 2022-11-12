@@ -139,24 +139,15 @@ export class HttpService {
     },
   ];
 
-  public homeCarouselList: CarouselItem[] = [
-    {
-      tittle: 'Summer',
-      description: 'Summer Clothes',
-      img: 'https://media.cntraveler.com/photos/5ca2606227413200230736ae/master/pass/Summer-Travel_GettyImages-1028278382.jpg',
-    },
-    {
-      tittle: 'Winter',
-      description: 'Winter Clothes',
-      img: 'https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/winter/benches-in-snow-covered-woods.jpg',
-    },
-  ];
-
   constructor(private http: HttpClient) {}
 
   public getProductsData<T>(): Observable<ProductOverview[]> {
     return this.http.get<ProductOverview[]>(
       '../../../assets/productsData.json'
     );
+  }
+
+  public getCarouselData<T>(): Observable<CarouselItem[]> {
+    return this.http.get<CarouselItem[]>('../../../assets/carouselData.json');
   }
 }

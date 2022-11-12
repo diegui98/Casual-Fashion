@@ -11,10 +11,6 @@ import { HttpService } from 'src/app/core/services/http.service';
 export class HomeService {
   constructor(private http: HttpService) {}
 
-  getCarouselList(): CarouselItem[] {
-    return this.http.homeCarouselList;
-  }
-
   //transforms a ProductOverview[] into a small list of Product[] for the featured products in home page
   getSmallProductList(
     object: ProductOverview[],
