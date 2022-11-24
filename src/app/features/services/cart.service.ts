@@ -9,7 +9,7 @@ export class CartService {
 
   constructor() {}
 
-  getProducts() {
+  getProducts(): CartItem[] {
     return this.products;
   }
 
@@ -30,7 +30,7 @@ export class CartService {
     return this.products.findIndex((x: any) => x.id === product.id) > -1;
   }
 
-  removeProduct(product: CartItem) {
+  removeProduct(product: CartItem): void {
     const index = this.products.findIndex((x: any) => x.id === product.id);
 
     if (index > -1) {
@@ -39,7 +39,7 @@ export class CartService {
     }
   }
 
-  clearProducts() {
+  clearProducts(): void {
     localStorage.clear();
   }
 }

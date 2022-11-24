@@ -83,10 +83,10 @@ export class ProductDetailsComponent implements OnInit {
       text: 'You can find your items in your cart.',
       icon: 'success',
       showCancelButton: true,
-      confirmButtonColor: '#d33',
+      confirmButtonColor: '#198754',
       cancelButtonColor: '#3085d6',
       confirmButtonText: 'Go to Cart!',
-      cancelButtonText: 'Keep Shooping!',
+      cancelButtonText: 'Keep shopping!',
     }).then((result) => {
       if (result.isConfirmed) {
         this.router.navigate(['/Cart']);

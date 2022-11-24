@@ -1,0 +1,83 @@
+<div class="container pb-5 mt-n2 mt-md-n3">
+  <!-- Cart -->
+  <div class="pt-3 pt-md-0 mt-5">
+    <h1 class="h1 text-center pt-4 font-weight-semibold">Your Cart</h1>
+    <hr class="mdHide" />
+    <div class="mdColumnCart">
+      <div class="col-md-3">
+        <div
+          class="bg-light"
+          style="border: 1px solid grey; border-radius: 7px"
+        >
+          <h5 class="h5 px-4 py-3 text-center">Total Price</h5>
+          <div class="h2 font-weight-semibold text-center py-3">
+            {{ total | currency }}
+          </div>
+        </div>
+        <div class="text-center" style="padding-top: 10px">
+          <button
+            class="btn btn-primary"
+            style="width: 100%"
+            (click)="checkout()"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div
+          class="product-info"
+          *ngFor="let product of products; let i = index"
+        >
+          <div class="row">
+            <div class="col-md-4">
+              <div class="">
+                <img
+                  [src]="product?.image"
+                  alt="Product"
+                  alt=""
+                  class="img-circle"
+                />
+              </div>
+            </div>
+            <div class="col-md-8 productCartInfo">
+              <h4>
+                <span>{{ product.ammount }}</span>
+                {{ product?.name }}
+                <span
+                  >${{
+                    product.ammount * product.price | number: "1.2-2"
+                  }}</span
+                >
+              </h4>
+              <div>
+                <div>
+                  color: <span>{{ product.color }}</span>
+                </div>
+                <div>
+                  size: <span>{{ product.size }}</span>
+                </div>
+                <div>
+                  ammount: <span>{{ product.ammount }}</span>
+                </div>
+                <div>
+                  Cost Per Unit : <span>{{ product.price }}</span>
+                </div>
+              </div>
+
+              <button
+                (click)="removeFromCart(product)"
+                type="button"
+                class="btn btn-danger mt-3"
+              >
+                Remove from cart
+              </button>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
