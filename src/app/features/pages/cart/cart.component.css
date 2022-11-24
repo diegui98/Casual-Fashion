@@ -9,6 +9,10 @@ img {
   align-items: flex-start;
 }
 
+.productDetails{
+  color: #212529bd;
+}
+
 @media (min-width: 768px){
   .mdColumnCart{
     display: flex;

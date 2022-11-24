@@ -52,16 +52,19 @@
                 >
               </h4>
               <div>
-                <div>
-                  color: <span>{{ product.color }}</span>
+                <div class="productDetails">
+                  Color:
+                  <span style="text-transform: capitalize">{{
+                    product.color
+                  }}</span>
                 </div>
-                <div>
-                  size: <span>{{ product.size }}</span>
+                <div class="productDetails">
+                  Size: <span>{{ product.size }}</span>
                 </div>
-                <div>
-                  ammount: <span>{{ product.ammount }}</span>
+                <div class="productDetails">
+                  Ammount: <span>{{ product.ammount }}</span>
                 </div>
-                <div>
+                <div class="productDetails">
                   Cost Per Unit : <span>{{ product.price }}</span>
                 </div>
               </div>
