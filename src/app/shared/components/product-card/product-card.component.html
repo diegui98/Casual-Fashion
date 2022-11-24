@@ -1,60 +1,50 @@
-<div
-  *ngIf="
-    detailsMode == true ||
-    ((colorFilter == 'none' ||
-      this.product.image[0].color == colorFilter ||
-      this.product.image[1]?.color == colorFilter) &&
-      (!this.priceToFilter || this.product.price < this.priceToFilter))
-  "
->
-  <div *ngIf="!detailsMode" style="position: relative; top: 0; left: 0">
-    <img
-      alt="Product"
-      [src]="imageSrc"
-      style="width: 100%; height: 100%"
-      (mouseover)="swapImage()"
-      (mouseout)="swapImage()"
-      style="position: relative; top: 0; left: 0; width: 100%"
-    />
-    <img
-      *ngIf="product.sale"
-      alt="Sale"
-      src="../../../../assets/discount.png"
-      style="position: absolute; top: 0; left: 0; width: 12%"
-    />
-  </div>
-  <div>
-    <div
-      [ngClass]="{
-        infoDetailsMode: detailsMode,
-        infoNoDetailsMode: !detailsMode
-      }"
-    >
-      <div style="flex-grow: 1">{{ product.name }}</div>
-      <div *ngIf="detailsMode" style="font-weight: bold">
-        <span *ngIf="product.inStock">$</span
-        ><span *ngIf="product.inStock">{{ product.price }}</span
-        ><span *ngIf="!product.inStock">Sold Out</span>
-      </div>
-      <div style="flex-grow: 1; display: flex; justify-content: flex-end">
-        <div *ngFor="let image of product.image; index as i">
-          <div
-            (click)="selectColor(i)"
-            class="color-circle"
-            [ngClass]="{ active: activeColor == i }"
-          >
-            <div
-              class="color-inside"
-              [style]="backgroundColor + image.color"
-            ></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div *ngIf="!detailsMode" style="font-weight: bold">
+<div *ngIf="!detailsMode" style="position: relative; top: 0; left: 0">
+  <img
+    alt="Product"
+    [src]="imageSrc"
+    style="width: 100%; height: 100%"
+    (mouseover)="swapImage()"
+    (mouseout)="swapImage()"
+    style="position: relative; top: 0; left: 0; width: 100%"
+  />
+  <img
+    *ngIf="product.sale"
+    alt="Sale"
+    src="../../../../assets/discount.png"
+    style="position: absolute; top: 0; left: 0; width: 12%"
+  />
+</div>
+<div>
+  <div
+    [ngClass]="{
+      infoDetailsMode: detailsMode,
+      infoNoDetailsMode: !detailsMode
+    }"
+  >
+    <div style="flex-grow: 1">{{ product.name }}</div>
+    <div *ngIf="detailsMode" style="font-weight: bold">
       <span *ngIf="product.inStock">$</span
       ><span *ngIf="product.inStock">{{ product.price }}</span
       ><span *ngIf="!product.inStock">Sold Out</span>
     </div>
+    <div style="flex-grow: 1; display: flex; justify-content: flex-end">
+      <div *ngFor="let image of product.image; index as i">
+        <div
+          (click)="selectColor(i)"
+          class="color-circle"
+          [ngClass]="{ active: activeColor == i }"
+        >
+          <div
+            class="color-inside"
+            [style]="backgroundColor + image.color"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!detailsMode" style="font-weight: bold">
+    <span *ngIf="product.inStock">$</span
+    ><span *ngIf="product.inStock">{{ product.price }}</span
+    ><span *ngIf="!product.inStock">Sold Out</span>
   </div>
 </div>

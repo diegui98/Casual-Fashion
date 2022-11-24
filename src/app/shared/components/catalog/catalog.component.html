@@ -1,12 +1,19 @@
 <div class="catalog">
-  <app-product-card
-    class="productCard"
-    *ngFor="let product of productList"
-    [product]="product"
-    [colorFilter]="colorFilter"
-    [priceToFilter]="priceToFilter"
-    (click)="goToDetails(product.id)"
-    (colorChanged)="colorChanged($event)"
-    style="cursor: pointer"
-  ></app-product-card>
+  <ng-container *ngFor="let product of productList">
+    <app-product-card
+      class="productCard"
+      [product]="product"
+      [colorFilter]="colorFilter"
+      [priceToFilter]="priceToFilter"
+      (click)="goToDetails(product.id)"
+      (colorChanged)="colorChanged($event)"
+      style="cursor: pointer"
+      *ngIf="
+        (colorFilter == 'none' ||
+          this.product.image[0].color == colorFilter ||
+          this.product.image[1]?.color == colorFilter) &&
+        (!this.priceToFilter || this.product.price < this.priceToFilter)
+      "
+    ></app-product-card>
+  </ng-container>
 </div>
