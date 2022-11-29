@@ -25,10 +25,14 @@ export class SidebarComponent implements OnInit {
         this.categoriesList = this.sidebarService.getCategories(res);
       },
     });
+    //Loads the sidebar without a category selected
     this.sidebarService.setActiveCategory(-1);
+
+    //Subscribes to display current active category
     this.sidebarService.getActiveCategory().subscribe((value) => {
       this.activeCategory = value;
     });
+    //Subscribes to react to sidebar toggles
     this.sidebarService.getActiveSidebar().subscribe((value) => {
       this.activeSidebar = value;
     });

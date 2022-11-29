@@ -28,6 +28,7 @@ export class SidebarService {
     this.activeCategory.next(i);
   }
 
+  //searchs in the category list for a specified category and sets it as active
   setActiveCategoryByCategory(
     object: ProductOverview[],
     category: string
