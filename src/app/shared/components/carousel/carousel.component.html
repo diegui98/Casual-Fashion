@@ -9,18 +9,21 @@
       class="carousel-item"
       [ngClass]="{ active: i == 0 }"
     >
+      <!--Carousel Img-->
       <img
         (click)="slideClick(carI.tittle)"
         [src]="carI.img"
         class="d-block w-100"
         alt="Carousel Img"
       />
+      <!--Carousel Info-->
       <div class="carousel-caption d-none d-md-block">
         <h5 class="text-danger">{{ carI.tittle }}</h5>
         <p class="text-danger">{{ carI.description }}</p>
       </div>
     </div>
   </div>
+  <!--Previous and Next Buttons-->
   <button
     class="carousel-control-prev"
     type="button"

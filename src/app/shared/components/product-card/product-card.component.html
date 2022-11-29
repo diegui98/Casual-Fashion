@@ -1,4 +1,5 @@
 <div *ngIf="!detailsMode" style="position: relative; top: 0; left: 0">
+  <!--Product Image-->
   <img
     alt="Product"
     [src]="imageSrc"
@@ -7,6 +8,7 @@
     (mouseout)="swapImage()"
     style="position: relative; top: 0; left: 0; width: 100%"
   />
+  <!--Sale Icon(img) on top of product image-->
   <img
     *ngIf="product.sale"
     alt="Sale"
@@ -14,6 +16,7 @@
     style="position: absolute; top: 0; left: 0; width: 12%"
   />
 </div>
+<!--Product Info-->
 <div>
   <div
     [ngClass]="{
@@ -21,12 +24,14 @@
       infoNoDetailsMode: !detailsMode
     }"
   >
+    <!--Product Info in deatails mode-->
     <div style="flex-grow: 1">{{ product.name }}</div>
     <div *ngIf="detailsMode" style="font-weight: bold">
       <span *ngIf="product.inStock">$</span
       ><span *ngIf="product.inStock">{{ product.price }}</span
       ><span *ngIf="!product.inStock">Sold Out</span>
     </div>
+    <!--Product Colors-->
     <div style="flex-grow: 1; display: flex; justify-content: flex-end">
       <div *ngFor="let image of product.image; index as i">
         <div
@@ -42,6 +47,7 @@
       </div>
     </div>
   </div>
+  <!--Product Info in not deatails mode-->
   <div *ngIf="!detailsMode" style="font-weight: bold">
     <span *ngIf="product.inStock">$</span
     ><span *ngIf="product.inStock">{{ product.price }}</span

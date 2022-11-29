@@ -1,9 +1,11 @@
-<div style="margin-top: 35px">
+<div style="margin-top: 15px">
+  <!--Carousel-->
   <app-carousel
     style="cursor: pointer"
     [carouselList]="carouselList"
     (slideClicked)="slideClicked($event)"
   ></app-carousel>
+  <!--Featured categories sections-->
   <div class="container">
     <section class="firstSection">
       <h3>{{ firstFeaturedTitle }}</h3>

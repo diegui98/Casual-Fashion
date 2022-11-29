@@ -67,6 +67,8 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
+  //creates and saves to cart a new object with the desired buy options
+  //and shows a Swal as feedback and redirects user to cart or previous category section
   addToCart() {
     let cartItem: CartItem = {
       id: this.product.id,

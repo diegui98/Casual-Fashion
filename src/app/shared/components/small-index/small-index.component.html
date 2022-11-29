@@ -1,4 +1,5 @@
 <div>
+  <!--Home Link-->
   <a
     [routerLink]="['/Home']"
     class="categoryLink"
@@ -6,6 +7,7 @@
     >Home</a
   >
   <span class="categorySpacer">></span>
+  <!--Current Category Link-->
   <a
     [routerLink]="['/Store']"
     [queryParams]="{ category: category }"
@@ -13,6 +15,7 @@
     (click)="changeSidebarCategoryByCategory()"
     >{{ category }}</a
   >
+  <!--Active Product Name-->
   <span *ngIf="detailsMode">
     <span class="categorySpacer">></span>
     <a class="categoryLink">{{ productName }}</a>
