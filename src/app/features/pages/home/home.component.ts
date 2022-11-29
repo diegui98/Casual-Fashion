@@ -15,8 +15,14 @@ import { HomeService } from '../../services/home.service';
 export class HomeComponent implements OnInit {
   carouselList!: CarouselItem[];
   productsQuantity: number = 3;
-  summerList!: Product[];
-  winterList!: Product[];
+  //choose first category to display
+  firstFeaturedCategory: string = 'Summer';
+  firstFeaturedTitle: string = 'Dreaming of Summer';
+  firstFeaturedList!: Product[];
+  //choose second category to display
+  secondFeaturedCategory: string = 'Winter';
+  secondFeaturedTitle: string = 'Trendings of Winter';
+  secondFeaturedList!: Product[];
 
   constructor(
     private homeService: HomeService,
@@ -36,14 +42,14 @@ export class HomeComponent implements OnInit {
     //loads the fetured items in the page
     this.http.getProductsData().subscribe({
       next: (res: ProductOverview[]) => {
-        this.summerList = this.homeService.getSmallProductList(
+        this.firstFeaturedList = this.homeService.getSmallProductList(
           res,
-          'Summer',
+          this.firstFeaturedCategory,
           this.productsQuantity
         );
-        this.winterList = this.homeService.getSmallProductList(
+        this.secondFeaturedList = this.homeService.getSmallProductList(
           res,
-          'Winter',
+          this.secondFeaturedCategory,
           this.productsQuantity
         );
       },
