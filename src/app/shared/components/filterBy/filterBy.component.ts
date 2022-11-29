@@ -15,6 +15,7 @@ export class FilterByComponent implements OnInit {
   priceToFilter: EventEmitter<number> = new EventEmitter<number>();
 
   clickedFilter: boolean = false;
+  //Color Filter Options
   colorList: string[] = ['red', 'green', 'black', 'blue'];
   backgroundColor: string = 'background-color: ';
   activeColor: number = -1;
