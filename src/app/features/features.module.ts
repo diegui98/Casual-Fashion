@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { StoreComponent } from './pages/store/store.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,17 @@ import { CartComponent } from './pages/cart/cart.component';
     StoreComponent,
     DetailsComponent,
     CartComponent,
+    PaymentComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule],
-  exports: [RouterModule, StoreComponent, DetailsComponent, CartComponent],
+  exports: [
+    RouterModule,
+    HomeComponent,
+    StoreComponent,
+    DetailsComponent,
+    CartComponent,
+    PaymentComponent,
+  ],
   providers: [CurrencyPipe],
 })
 export class FeaturesModule {}
