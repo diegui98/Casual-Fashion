@@ -16,7 +16,7 @@ export class FilterByComponent implements OnInit {
 
   clickedFilter: boolean = false;
   //Color Filter Options
-  colorList: string[] = ['red', 'green', 'black', 'blue'];
+  colorList: string[] = ['red', 'green', 'black', 'blue', 'orange'];
   backgroundColor: string = 'background-color: ';
   activeColor: number = -1;
 
