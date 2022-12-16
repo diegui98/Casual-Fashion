@@ -11,15 +11,25 @@
     >
       <!--Carousel Img-->
       <img
+        *ngIf="!smallScreen"
         (click)="slideClick(carI.tittle)"
         [src]="carI.img"
         class="d-block w-100"
         alt="Carousel Img"
+        style="height: 100%"
+      />
+      <img
+        *ngIf="smallScreen"
+        (click)="slideClick(carI.tittle)"
+        [src]="carI.imgVertical"
+        class="d-block w-100"
+        alt="Carousel ImgVertical"
+        style="height: 100%"
       />
       <!--Carousel Info-->
-      <div class="carousel-caption d-none d-md-block">
-        <h5 class="text-danger">{{ carI.tittle }}</h5>
-        <p class="text-danger">{{ carI.description }}</p>
+      <div class="carousel-caption d-none d-md-block" style="color: darkviolet">
+        <h5 class="">{{ carI.tittle }}</h5>
+        <p class="">{{ carI.description }}</p>
       </div>
     </div>
   </div>

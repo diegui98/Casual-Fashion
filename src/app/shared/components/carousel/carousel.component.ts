@@ -12,9 +12,15 @@ export class CarouselComponent implements OnInit {
   @Output()
   slideClicked: EventEmitter<string> = new EventEmitter<string>();
 
+  smallScreen: boolean = false;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      this.smallScreen = true;
+    }
+  }
 
   slideClick(category: string): void {
     this.slideClicked.emit(category);
