@@ -19,3 +19,20 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 1px;
 }
+
+@media (max-width: 991px){
+    .catalog-md {
+        justify-content: center;
+    }
+
+    .productCard-md {
+        width: 60%;
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 767px){
+    .productCard-sm {
+        width: 70%;
+    }
+}
