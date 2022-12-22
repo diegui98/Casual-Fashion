@@ -1,12 +1,12 @@
 <!--Toggler button-->
-<button class="btn btn-outline-secondary" (click)="toggleFilter()">
+<button class="btn btn-primary" (click)="toggleFilter()">
   Filter By
   <img
     style="height: 20px; margin-left: 6px"
     src="../../../../assets/settings.png"
   />
 </button>
-<div style="display: flex; flex-wrap: wrap" *ngIf="clickedFilter">
+<div id="closed" [ngClass]="{ open: clickedFilter }">
   <!--Price Filter-->
   <div class="filterSection">
     <label style="margin-right: 4px">Price:$</label>

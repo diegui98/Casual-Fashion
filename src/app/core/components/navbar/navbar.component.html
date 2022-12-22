@@ -1,13 +1,17 @@
 <nav
-  class="navbar sticky-top navbar-light bg-light"
-  style="height: 7vh; margin-right: 1px"
+  class="navbar sticky-top navbar-light"
+  style="height: 7vh; margin-right: 1px; background-color: #f5ce28"
 >
   <!--Sidebar Toggler-->
   <button (click)="toggleSideBar()" class="navbar-toggler mg-l-5" type="button">
     <span class="navbar-toggler-icon"></span>
   </button>
   <!--Brand name, Title, redirects to home on click-->
-  <a class="navbar-brand" [routerLink]="['/Home']" (click)="clickedBrand(-1)"
+  <a
+    class="navbar-brand"
+    [routerLink]="['/Home']"
+    (click)="clickedBrand(-1)"
+    style="font-weight: 800"
     >Casual Fashion</a
   >
 
