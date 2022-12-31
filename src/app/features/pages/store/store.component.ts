@@ -5,6 +5,7 @@ import { Product } from 'src/app/core/models/product';
 import { StoreService } from '../../services/store.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http.service';
+import { SidebarService } from 'src/app/core/services/sidebar.service';
 
 @Component({
   selector: 'app-store',
@@ -19,6 +20,7 @@ export class StoreComponent implements OnInit {
 
   constructor(
     private storeService: StoreService,
+    private sidebarService: SidebarService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private http: HttpService
@@ -34,6 +36,13 @@ export class StoreComponent implements OnInit {
     } else {
       this.category = params;
     }
+
+    //sets sidebar category if loaded, in case someone loads directly into the store
+    this.http.getProductsData().subscribe({
+      next: (res: ProductOverview[]) => {
+        this.sidebarService.setActiveCategoryByCategory(res, this.category);
+      },
+    });
 
     //gets the product list based on the category
     this.http.getProductsData().subscribe({
