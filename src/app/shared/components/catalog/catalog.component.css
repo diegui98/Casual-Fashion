@@ -12,8 +12,6 @@
     margin-bottom: 20px;
     transition: 0.25s;
     padding: 3px;
-    max-height: 45vh;
-    padding-bottom: 1% !important;
 }
 
 .productCard:hover{
@@ -35,6 +33,11 @@
 @media (max-width: 767px){
     .productCard-sm {
         width: 70%;
-        max-height: 42vh;
+    }
+}
+
+@media (max-width: 425px){
+    .productCard-rsm {
+        padding-bottom: 15px;
     }
 }
