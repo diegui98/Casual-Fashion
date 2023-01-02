@@ -40,8 +40,9 @@
     </div>
     <!--Buy Options-->
     <div class="mb-15">
-      Size
-      <ul class="list-group list-group-horizontal">
+      <label>Choose a Size:</label>
+      <!--Size list for +767px screens-->
+      <ul *ngIf="!smallScreen" class="list-group list-group-horizontal">
         <li
           *ngFor="let size of product.image[imageIndex].size; index as i"
           [ngClass]="{ active: i == activeSize }"
@@ -53,9 +54,24 @@
           {{ size }}
         </li>
       </ul>
+      <!--Size list for -767px screens-->
+      <select
+        *ngIf="smallScreen"
+        class="form-select btn-color"
+        (change)="selectSize($event)"
+        id="sizeInput"
+      >
+        <option value="-1">X</option>
+        <option
+          *ngFor="let size of product.image[imageIndex].size; index as i"
+          [value]="i"
+        >
+          {{ size }}
+        </option>
+      </select>
     </div>
     <div class="mb-15">
-      <div>Amount</div>
+      <label style="display: block">Select an Amount:</label>
       <div class="btn-group" role="group" aria-label="Basic outlined example">
         <button type="button" class="btn btn-dark" (click)="removeAmount()">
           -

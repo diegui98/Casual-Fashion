@@ -23,15 +23,26 @@ export class ProductDetailsComponent implements OnInit {
   imagePath: string = '../../../../assets/';
   imageSrc?: string;
 
+  smallScreen: boolean = false;
+
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
     this.imageSrc =
       this.imagePath + this.product?.image[this.imageIndex].image[0];
+
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      this.smallScreen = true;
+    }
   }
 
-  selectSize(i: number) {
-    this.activeSize = i;
+  selectSize(i: number | any) {
+    if (typeof i == 'number') {
+      this.activeSize = i;
+      return;
+    }
+
+    this.activeSize = i.target.value;
   }
 
   removeAmount() {
@@ -47,6 +58,12 @@ export class ProductDetailsComponent implements OnInit {
 
   colorChanged(i: number) {
     this.activeSize = -1;
+    const select = document.getElementById(
+      'sizeInput'
+    ) as HTMLSelectElement | null;
+    if (select != null) {
+      select.selectedIndex = 0;
+    }
     this.imageIndex = i;
     this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
   }
