@@ -18,7 +18,7 @@ export class ProductDetailsComponent implements OnInit {
   @Input()
   imageIndex: number = 0;
 
-  activeSize: number = -1;
+  activeSizeIndex: number = -1;
   buyAmount: number = 1;
   imagePath: string = '../../../../assets/';
   imageSrc?: string;
@@ -38,11 +38,11 @@ export class ProductDetailsComponent implements OnInit {
 
   selectSize(i: number | any) {
     if (typeof i == 'number') {
-      this.activeSize = i;
+      this.activeSizeIndex = i;
       return;
     }
 
-    this.activeSize = i.target.value;
+    this.activeSizeIndex = +i.target.value;
   }
 
   removeAmount() {
@@ -57,7 +57,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   colorChanged(i: number) {
-    this.activeSize = -1;
+    this.activeSizeIndex = -1;
     const select = document.getElementById(
       'sizeInput'
     ) as HTMLSelectElement | null;
@@ -87,12 +87,14 @@ export class ProductDetailsComponent implements OnInit {
   //creates and saves to cart a new object with the desired buy options
   //and shows a Swal as feedback and redirects user to cart or previous category section
   addToCart() {
+    let activeSize = this.activeSizeIndex;
+    activeSize += 1;
     let cartItem: CartItem = {
       id: this.product.id,
       name: this.product.name,
       image: this.imagePath + this.product.image[this.imageIndex].image[0],
       color: this.product.image[this.imageIndex].color,
-      size: this.activeSize + 1,
+      size: activeSize,
       ammount: this.buyAmount,
       price: this.product.price,
     };

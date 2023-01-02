@@ -45,7 +45,7 @@
       <ul *ngIf="!smallScreen" class="list-group list-group-horizontal">
         <li
           *ngFor="let size of product.image[imageIndex].size; index as i"
-          [ngClass]="{ active: i == activeSize }"
+          [ngClass]="{ active: i == activeSizeIndex }"
           class="list-group-item"
           aria-current="true"
           (click)="selectSize(i)"
@@ -88,12 +88,12 @@
     <button
       (click)="addToCart()"
       class="btn btn-success"
-      [ngClass]="{ disabled: activeSize == -1 }"
+      [ngClass]="{ disabled: activeSizeIndex == -1 }"
       style="width: 100%"
     >
       Add to Cart!
     </button>
-    <div class="text-danger" *ngIf="activeSize == -1">
+    <div class="text-danger" *ngIf="activeSizeIndex == -1">
       Please choose a size.
     </div>
   </div>

@@ -1,8 +1,8 @@
 <div class="container pb-5 mt-n2 mt-md-n3">
   <!-- Cart -->
-  <div class="pt-3 pt-md-0 mt-5">
+  <div class="pt-3 pt-md-0 mt-2">
     <h1 class="h1 text-center pt-4 font-weight-semibold">Your Cart</h1>
-    <hr class="mdHide" />
+    <hr />
     <div class="mdColumnCart">
       <div class="col-md-3">
         <div
@@ -24,7 +24,7 @@
           </button>
         </div>
       </div>
-
+      <hr />
       <div class="col-md-9">
         <div
           class="product-info"
@@ -47,7 +47,7 @@
                 {{ product?.name }}
                 <span
                   >${{
-                    product.ammount * product.price | number: "1.2-2"
+                    product.ammount * product.price | number : "1.2-2"
                   }}</span
                 >
               </h4>
