@@ -3,14 +3,12 @@
     {{ category }}
   </h1>
   <app-small-index [category]="category"></app-small-index>
-  <div
-    style="display: flex; justify-content: space-between; margin-bottom: 4px"
-  >
+  <div class="filterAndSort filterAndSort-sm">
     <app-filterBy
       (colorFilterChanged)="selectColorFilter($event)"
       (priceToFilter)="selectPriceToFilter($event)"
       [productList]="productList"
-      style="flex-shrink: 1; width: 30%"
+      style="flex-shrink: 1"
     ></app-filterBy>
     <app-sortBy
       (backToNewProductList)="backToNewProductList($event)"

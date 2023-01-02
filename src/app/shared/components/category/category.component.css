@@ -1,0 +1,13 @@
+.filterAndSort{
+    display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 767px){
+
+.filterAndSort-sm{
+    width: 85%;
+}
+}
