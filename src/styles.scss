@@ -3,11 +3,39 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
-.mb-15 {
-    margin-bottom: 15px;
+.main-text-color{
+    color: #f81884
+}
+
+.main-background-color{
+    background-color: #f2eee2
+}
+
+.nav-sidebar-background-color{
+    background-color: #f5ce28
+}
+
+.nav-link.active{
+    background-color: #0dcaf0 !important;
+}
+
+.card-text-color{
+    color: black
+}
+
+.card-background-color{
+    background-color: #43c0f6
+}
+
+.card-border{
+    border: 2px dashed #f5ce28
 }
 
 .btn-color {
     background-color: #0dcaf0 !important;
     color: black !important;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
 }
