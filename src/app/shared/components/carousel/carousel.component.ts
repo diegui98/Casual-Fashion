@@ -13,6 +13,7 @@ export class CarouselComponent implements OnInit {
   slideClicked: EventEmitter<string> = new EventEmitter<string>();
 
   smallScreen: boolean = false;
+  imagePath: string = '../../../../assets/carousel/';
 
   constructor() {}
 

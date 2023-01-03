@@ -2,13 +2,13 @@
   {
     "tittle": "Summer",
     "description": "Summer Clothes",
-    "img": "https://media.cntraveler.com/photos/5ca2606227413200230736ae/master/pass/Summer-Travel_GettyImages-1028278382.jpg",
-    "imgVertical": "https://media.istockphoto.com/id/498132569/photo/summer-beach-with-blue-sandals-and-shells.jpg?s=612x612&w=0&k=20&c=4y-7BVa7Doj66aSaKUlOD06hHBhn8wt0g1rHXpml_44="
+    "img": "summerH.jpg",
+    "imgVertical": "summerV.jpg"
   },
   {
     "tittle": "Winter",
     "description": "Winter Clothes",
-    "img": "https://wallpapercave.com/wp/wp5326882.jpg",
-    "imgVertical": "https://thumbs.dreamstime.com/b/abstract-winter-christmas-background-shiny-snow-blizzard-space-text-vertical-stories-soft-focus-162196258.jpg"
+    "img": "winterH.jpg",
+    "imgVertical": "winterV.jpg"
   }
 ]

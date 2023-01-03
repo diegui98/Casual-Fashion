@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit {
 
   activeSizeIndex: number = -1;
   buyAmount: number = 1;
-  imagePath: string = '../../../../assets/';
+  imagePath: string = '../../../../assets/stock/';
   imageSrc?: string;
 
   smallScreen: boolean = false;
@@ -65,7 +65,8 @@ export class ProductDetailsComponent implements OnInit {
       select.selectedIndex = 0;
     }
     this.imageIndex = i;
-    this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
+    this.imageSrc =
+      '../../../../assets/stock/' + this.product.image[i].image[0];
   }
 
   swapImage(): void {

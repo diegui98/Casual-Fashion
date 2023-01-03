@@ -36,7 +36,7 @@ export class ProductCardComponent implements OnInit {
   activeColor: number = 0;
 
   backgroundColor: string = 'background-color: ';
-  imagePath: string = '../../../../assets/';
+  imagePath: string = '../../../../assets/stock/';
   imageSrc?: string;
 
   constructor(private router: Router) {}
@@ -47,7 +47,8 @@ export class ProductCardComponent implements OnInit {
 
   selectColor(i: number): void {
     this.activeColor = i;
-    this.imageSrc = '../../../../assets/' + this.product.image[i].image[0];
+    this.imageSrc =
+      '../../../../assets/stock/' + this.product.image[i].image[0];
     this.colorChanged.emit(this.activeColor);
     event?.stopImmediatePropagation();
   }

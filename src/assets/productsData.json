@@ -7,15 +7,12 @@
         "name": "Shirt",
         "image": [
           {
-            "image": [
-              "stock/blackShirt-612x612.jpg",
-              "stock/blackShirt2-612x612.jpg"
-            ],
+            "image": ["blackShirt-612x612.jpg", "blackShirt2-612x612.jpg"],
             "color": "black",
             "size": [1, 2, 3]
           },
           {
-            "image": ["stock/blueShirt-612x612.jpg"],
+            "image": ["blueShirt-612x612.jpg"],
             "color": "blue",
             "size": [1, 2]
           }
@@ -29,12 +26,12 @@
         "name": "Pants",
         "image": [
           {
-            "image": ["stock/blackPants-612x612.jpg"],
+            "image": ["blackPants-612x612.jpg"],
             "color": "black",
             "size": [1, 2]
           },
           {
-            "image": ["stock/greenPants-612x612.jpg"],
+            "image": ["greenPants-612x612.jpg"],
             "color": "green",
             "size": [1, 2, 3]
           }
@@ -48,7 +45,7 @@
         "name": "Shoes",
         "image": [
           {
-            "image": ["stock/blueShoes-612x612.jpg"],
+            "image": ["blueShoes-612x612.jpg"],
             "color": "blue",
             "size": [1, 2, 3]
           }
@@ -62,17 +59,17 @@
         "name": "Hat",
         "image": [
           {
-            "image": ["stock/redHat-612x612.jpg"],
+            "image": ["redHat-612x612.jpg"],
             "color": "red",
             "size": [1, 2]
           },
           {
-            "image": ["stock/blueHat-612x612.jpg"],
+            "image": ["blueHat-612x612.jpg"],
             "color": "blue",
             "size": [1, 2, 3]
           },
           {
-            "image": ["stock/blackHat-612x612.jpg"],
+            "image": ["blackHat-612x612.jpg"],
             "color": "black",
             "size": [1]
           }
@@ -91,7 +88,7 @@
         "name": "Jacket",
         "image": [
           {
-            "image": ["stock/blueJacket-612x612.jpg"],
+            "image": ["blueJacket-612x612.jpg"],
             "color": "blue",
             "size": [1, 2, 3]
           }
@@ -105,12 +102,12 @@
         "name": "Sweater",
         "image": [
           {
-            "image": ["stock/orangeSweater2-612x612.jpg"],
+            "image": ["orangeSweater2-612x612.jpg"],
             "color": "orange",
             "size": [1, 2, 3]
           },
           {
-            "image": ["stock/greenSweater-612x612.jpg"],
+            "image": ["greenSweater-612x612.jpg"],
             "color": "green",
             "size": [1, 2, 3]
           }
@@ -124,7 +121,7 @@
         "name": "Gloves",
         "image": [
           {
-            "image": ["stock/redGloves-612x612.jpg"],
+            "image": ["redGloves-612x612.jpg"],
             "color": "red",
             "size": [1]
           }
@@ -139,8 +136,8 @@
         "image": [
           {
             "image": [
-              "stock/blackSlippers-612x612.jpg",
-              "stock/blackSlippers2-612x612.jpg"
+              "blackSlippers-612x612.jpg",
+              "blackSlippers2-612x612.jpg"
             ],
             "color": "black",
             "size": [1, 2]

@@ -13,7 +13,7 @@
       <img
         *ngIf="!smallScreen"
         (click)="slideClick(carI.tittle)"
-        [src]="carI.img"
+        [src]="imagePath + carI.img"
         class="d-block w-100"
         alt="Carousel Img"
         style="height: 100%"
@@ -21,7 +21,7 @@
       <img
         *ngIf="smallScreen"
         (click)="slideClick(carI.tittle)"
-        [src]="carI.imgVertical"
+        [src]="imagePath + carI.imgVertical"
         class="d-block w-100"
         alt="Carousel ImgVertical"
         style="height: 100%"
