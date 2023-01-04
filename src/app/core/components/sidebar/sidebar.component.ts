@@ -1,7 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { ProductOverview } from '../../models/productOverview';
-import { HttpService } from '../../services/http.service';
+import { Component, OnInit } from '@angular/core';
 import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
@@ -15,10 +12,7 @@ export class SidebarComponent implements OnInit {
   categoriesList!: String[];
   activeCategory!: number;
 
-  constructor(
-    private sidebarService: SidebarService,
-    private http: HttpService
-  ) {}
+  constructor(private sidebarService: SidebarService) {}
 
   ngOnInit() {
     this.sidebarService.getCategories().subscribe((res: String[]) => {

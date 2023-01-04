@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { take } from 'rxjs';
 import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
