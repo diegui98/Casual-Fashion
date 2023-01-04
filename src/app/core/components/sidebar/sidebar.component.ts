@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { ProductOverview } from '../../models/productOverview';
 import { HttpService } from '../../services/http.service';
 import { SidebarService } from '../../services/sidebar.service';
@@ -11,7 +12,7 @@ import { SidebarService } from '../../services/sidebar.service';
 export class SidebarComponent implements OnInit {
   activeSidebar!: boolean;
 
-  categoriesList!: string[];
+  categoriesList!: String[];
   activeCategory!: number;
 
   constructor(
@@ -20,11 +21,10 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.http.getProductsData().subscribe({
-      next: (res: ProductOverview[]) => {
-        this.categoriesList = this.sidebarService.getCategories(res);
-      },
+    this.sidebarService.getCategories().subscribe((res: String[]) => {
+      this.categoriesList = res;
     });
+
     //Loads the sidebar without a category selected
     this.sidebarService.setActiveCategory(-1);
 

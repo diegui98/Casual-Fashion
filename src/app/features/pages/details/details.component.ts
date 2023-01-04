@@ -53,11 +53,7 @@ export class DetailsComponent implements OnInit {
     });
 
     //sets sidebar category and hides it
-    this.http.getProductsData().subscribe({
-      next: (res: ProductOverview[]) => {
-        this.sidebarService.setActiveCategoryByCategory(res, this.category);
-      },
-    });
+    this.sidebarService.setActiveCategoryByCategory(this.category);
     this.sidebarService.setActiveSidebar(false);
   }
 }

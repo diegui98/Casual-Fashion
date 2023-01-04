@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, take } from 'rxjs';
+import { BehaviorSubject, map, Observable, take } from 'rxjs';
 import { ProductOverview } from '../models/productOverview';
 import { HttpService } from './http.service';
 
@@ -15,13 +15,17 @@ export class SidebarService {
     this.activeSidebar = new BehaviorSubject<boolean>(false);
   }
 
-  getCategories(object: ProductOverview[]): string[] {
-    let allProductsList = object;
-    let categories: string[] = [];
-    for (let productlist of allProductsList) {
-      categories.push(productlist.category);
-    }
-    return categories;
+  getCategories(): Observable<String[]> {
+    return this.http.getProductsData().pipe(
+      map((res: ProductOverview[]) => {
+        let allProductsList = res;
+        let categories: string[] = [];
+        for (let productlist of allProductsList) {
+          categories.push(productlist.category);
+        }
+        return categories;
+      })
+    );
   }
 
   setActiveCategory(i: number): void {
@@ -29,16 +33,15 @@ export class SidebarService {
   }
 
   //searchs in the category list for a specified category and sets it as active
-  setActiveCategoryByCategory(
-    object: ProductOverview[],
-    category: string
-  ): void {
-    let categories = this.getCategories(object);
-    for (let i = 0; i < categories.length; i++) {
-      if (categories[i] == category) {
-        this.setActiveCategory(i);
+  setActiveCategoryByCategory(category: String): void {
+    this.getCategories().subscribe((res: String[]) => {
+      let categories = res;
+      for (let i = 0; i < categories.length; i++) {
+        if (categories[i] == category) {
+          this.setActiveCategory(i);
+        }
       }
-    }
+    });
   }
 
   getActiveCategory(): Observable<number> {
