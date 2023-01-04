@@ -1,18 +1,12 @@
 <div style="display: flex; flex-wrap: wrap; align-items: baseline">
   <!--Home Link-->
-  <a
-    [routerLink]="['/Home']"
-    class="categoryLink"
-    (click)="changeSidebarCategory(-1)"
-    >Home</a
-  >
+  <a [routerLink]="['/Home']" class="categoryLink">Home</a>
   <span class="categorySpacer">></span>
   <!--Current Category Link-->
   <a
     [routerLink]="['/Store']"
     [queryParams]="{ category: category }"
     class="categoryLink"
-    (click)="changeSidebarCategoryByCategory()"
     >{{ category }}</a
   >
   <!--Active Product Name-->

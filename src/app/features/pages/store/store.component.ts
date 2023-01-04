@@ -37,12 +37,13 @@ export class StoreComponent implements OnInit {
       this.category = params;
     }
 
-    //sets sidebar category if loaded, in case someone loads directly into the store
+    //sets sidebar category and hides it
     this.http.getProductsData().subscribe({
       next: (res: ProductOverview[]) => {
         this.sidebarService.setActiveCategoryByCategory(res, this.category);
       },
     });
+    this.sidebarService.setActiveSidebar(false);
 
     //gets the product list based on the category
     this.http.getProductsData().subscribe({

@@ -16,24 +16,7 @@ export class SmallIndexComponent implements OnInit {
   @Input()
   productName?: string;
 
-  constructor(
-    private sidebarService: SidebarService,
-    private http: HttpService
-  ) {}
+  constructor() {}
 
   ngOnInit() {}
-
-  changeSidebarCategory(i: number): void {
-    this.sidebarService.setActiveCategory(i);
-    this.sidebarService.setActiveSidebar(false);
-  }
-
-  changeSidebarCategoryByCategory(): void {
-    this.http.getProductsData().subscribe({
-      next: (res: ProductOverview[]) => {
-        this.sidebarService.setActiveCategoryByCategory(res, this.category);
-      },
-    });
-    this.sidebarService.setActiveSidebar(false);
-  }
 }

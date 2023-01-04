@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/core/models/product';
 import { ProductOverview } from 'src/app/core/models/productOverview';
 import { HttpService } from 'src/app/core/services/http.service';
+import { SidebarService } from 'src/app/core/services/sidebar.service';
 import { StoreService } from '../../services/store.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class DetailsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private storeService: StoreService,
-    private http: HttpService
+    private http: HttpService,
+    private sidebarService: SidebarService
   ) {}
 
   ngOnInit() {
@@ -39,6 +41,7 @@ export class DetailsComponent implements OnInit {
       this.imageIndex = Number(imageIndexParam);
     }
 
+    //gets product to display
     this.http.getProductsData().subscribe({
       next: (res: ProductOverview[]) => {
         this.product = this.storeService.getProductById(
@@ -48,5 +51,13 @@ export class DetailsComponent implements OnInit {
         );
       },
     });
+
+    //sets sidebar category and hides it
+    this.http.getProductsData().subscribe({
+      next: (res: ProductOverview[]) => {
+        this.sidebarService.setActiveCategoryByCategory(res, this.category);
+      },
+    });
+    this.sidebarService.setActiveSidebar(false);
   }
 }

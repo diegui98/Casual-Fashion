@@ -32,6 +32,9 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    //sets sidebar category to Home and hides it
+    this.sidebarService.setActiveCategory(-1);
+    this.sidebarService.setActiveSidebar(false);
     //loads the carousel
     this.http.getCarouselData().subscribe({
       next: (res: CarouselItem[]) => {
@@ -58,13 +61,6 @@ export class HomeComponent implements OnInit {
 
   //manages the sidebar actives classes and redirects the user to Store + category clicked
   slideClicked(category: string): void {
-    this.http.getProductsData().subscribe({
-      next: (res: ProductOverview[]) => {
-        this.sidebarService.setActiveCategoryByCategory(res, category);
-      },
-    });
-
-    this.sidebarService.setActiveSidebar(false);
     this.router.navigate(['/Store'], { queryParams: { category: category } });
   }
 }

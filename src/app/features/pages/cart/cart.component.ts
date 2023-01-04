@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartItem } from 'src/app/core/models/cartItem';
+import { SidebarService } from 'src/app/core/services/sidebar.service';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -10,9 +11,17 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent implements OnInit {
   products: CartItem[] = [];
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+    private sidebarService: SidebarService
+  ) {}
 
   ngOnInit() {
+    //sets sidebar category to none and hides it
+    this.sidebarService.setActiveCategory(-2);
+    this.sidebarService.setActiveSidebar(false);
+    //loads carts and products
     this.cartService.loadCart();
     this.products = this.cartService.getProducts();
   }

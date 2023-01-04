@@ -18,9 +18,4 @@ export class NavbarComponent implements OnInit {
   toggleSideBar() {
     this.sidebarService.toggleActiveSidebar();
   }
-
-  clickedBrand(i: number): void {
-    this.sidebarService.setActiveCategory(i);
-    this.sidebarService.setActiveSidebar(false);
-  }
 }
