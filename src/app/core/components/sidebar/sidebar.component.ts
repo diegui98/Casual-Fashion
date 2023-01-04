@@ -36,4 +36,8 @@ export class SidebarComponent implements OnInit {
     this.sidebarService.setActiveCategory(i);
     this.sidebarService.toggleActiveSidebar();
   }
+
+  clickedOutOfSidebar() {
+    this.sidebarService.toggleActiveSidebar();
+  }
 }

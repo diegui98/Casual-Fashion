@@ -1,9 +1,10 @@
+<!--sidebar-->
 <div
   class="nav-sidebar-background-color d-flex flex-column flex-shrink-0 p-3 text-dark"
   style="
     position: fixed;
     z-index: 10;
-    height: 94vh;
+    height: 96vh;
     overflow: hidden;
     transition: 0.3s;
   "
@@ -50,3 +51,9 @@
   </ul>
   <hr />
 </div>
+<!--outside of sidebar toggler-->
+<div
+  *ngIf="activeSidebar"
+  style="height: 96vh; width: 100%; left: 280px; position: fixed; z-index: 10"
+  (click)="clickedOutOfSidebar()"
+></div>
