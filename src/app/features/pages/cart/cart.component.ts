@@ -38,13 +38,13 @@ export class CartComponent implements OnInit {
   }
 
   //Remove a Product from Cart
-  removeFromCart(product: any) {
+  removeFromCart(product: any): void {
     this.cartService.removeProduct(product);
     this.products = this.cartService.getProducts();
   }
 
   //Calculate Total
-  get total() {
+  get total(): number {
     return this.products?.reduce(
       (sum, product) => ({
         quantity: 1,
@@ -54,8 +54,11 @@ export class CartComponent implements OnInit {
     ).price;
   }
 
-  checkout() {
+  //saves the total price in localstorage
+  //sets checkout state to true to get access to Payment page through its guard and redirects to it
+  checkout(): void {
     localStorage.setItem('cart_total', JSON.stringify(this.total));
+    this.cartService.checkoutClicked();
     this.router.navigate(['/Payment']);
   }
 }

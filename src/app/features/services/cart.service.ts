@@ -6,8 +6,21 @@ import { CartItem } from 'src/app/core/models/cartItem';
 })
 export class CartService {
   products: CartItem[] = [];
+  checkout: boolean = false;
 
   constructor() {}
+
+  getCheckoutClicked(): boolean {
+    return this.checkout;
+  }
+
+  checkoutClicked(): void {
+    this.checkout = true;
+  }
+
+  checkoutReset(): void {
+    this.checkout = false;
+  }
 
   getProducts(): CartItem[] {
     return this.products;
