@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartItem } from 'src/app/core/models/cartItem';
 import { SidebarService } from 'src/app/core/services/sidebar.service';
+import Swal from 'sweetalert2';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -24,6 +25,16 @@ export class CartComponent implements OnInit {
     //loads carts and products
     this.cartService.loadCart();
     this.products = this.cartService.getProducts();
+    //displays an alert if the cart is empty on page load
+    if (this.products.length <= 0) {
+      Swal.fire({
+        title: 'Cart is empty!',
+        text: 'Add your favorite products to your cart and come back to do the checkout.',
+        icon: 'info',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Ok!',
+      });
+    }
   }
 
   //Remove a Product from Cart

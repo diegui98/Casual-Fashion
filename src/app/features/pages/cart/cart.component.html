@@ -18,16 +18,25 @@
           <button
             class="btn btn-success"
             style="width: 100%"
-            [disabled]="total == 0"
+            [disabled]="this.products.length <= 0"
             (click)="checkout()"
           >
             Checkout
           </button>
-          <div class="text-danger" *ngIf="total == 0">Your cart is empty!</div>
+          <div class="text-danger" *ngIf="this.products.length <= 0">
+            Your cart is empty!
+          </div>
         </div>
       </div>
       <hr />
       <div class="col-md-9">
+        <div *ngIf="this.products.length <= 0" style="text-align: center">
+          <img
+            style="opacity: 0.25"
+            src="../../../../assets/empty-cart.webp"
+            alt="empty cart icon"
+          />
+        </div>
         <div
           class="product-info"
           *ngFor="let product of products; let i = index"
