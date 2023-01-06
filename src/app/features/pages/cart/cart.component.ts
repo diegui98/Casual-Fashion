@@ -33,7 +33,6 @@ export class CartComponent implements OnInit {
   }
 
   //Calculate Total
-
   get total() {
     return this.products?.reduce(
       (sum, product) => ({

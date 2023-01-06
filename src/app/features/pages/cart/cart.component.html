@@ -18,10 +18,12 @@
           <button
             class="btn btn-success"
             style="width: 100%"
+            [disabled]="total == 0"
             (click)="checkout()"
           >
             Checkout
           </button>
+          <div class="text-danger" *ngIf="total == 0">Your cart is empty!</div>
         </div>
       </div>
       <hr />
