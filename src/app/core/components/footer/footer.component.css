@@ -1,3 +1,26 @@
+footer {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 15px;
+    margin-right: 0px;
+}
+
+#email {
+    text-decoration: underline
+}
+
+div.row > div:first-child {
+    text-align: end
+}
+
+div.row > div:last-child{
+    text-align: initial
+}
+
+#copyright{
+    color: grey
+}
+
 a {
     text-decoration: none;
 }
