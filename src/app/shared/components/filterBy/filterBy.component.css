@@ -1,5 +1,6 @@
 #togglerContainer{
-    display: flex; align-items: center
+    display: flex;
+    align-items: center
 }
 
 #togglerContainer > label {
@@ -14,7 +15,6 @@
     width: 22px;
     cursor: pointer;
     height: 22px;
-
     border-radius: 90px;
     margin-right: 2px;
 }
@@ -44,15 +44,18 @@
 }
 
 #priceSection > input {
-    flex-grow: 1; width: inherit
+    flex-grow: 1;
+    width: inherit
 }
 
 #colorSection > div {
-    display: flex; flex-grow: 1
+    display: flex;
+    flex-grow: 1
 }
 
 #colorSection > div > div {
-    flex-grow: 1; text-align: -webkit-center
+    flex-grow: 1;
+    text-align: -webkit-center
 }
 
 #closed{

@@ -7,7 +7,11 @@
 }
 
 #outsideSidebar{
-    height: 96vh; width: 100%; left: 280px; position: fixed; z-index: 10
+    height: 96vh;
+    width: 100%;
+    left: 280px;
+    position: fixed;
+    z-index: 10
 }
 
 .active {

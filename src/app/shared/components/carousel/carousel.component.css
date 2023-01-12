@@ -3,7 +3,8 @@ img {
 }
 
 .carousel-caption{
-    color: #f81884; display: block !important
+    color: #f81884;
+    display: block !important
 }
 
 .carousel-caption span{

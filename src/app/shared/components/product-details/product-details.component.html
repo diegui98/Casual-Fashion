@@ -1,22 +1,16 @@
-<div class="container" style="display: flex; color: black">
+<div class="container">
   <!--left side, Product Img-->
-  <div
-    class="col-8"
-    style="position: relative; top: 0; left: 0; padding-right: 10px"
-  >
+  <div id="imgColumn" class="col-8">
     <img
       alt="Product"
       [src]="imageSrc"
-      style="width: 100%; height: 100%"
       (mouseover)="swapImage()"
       (mouseout)="swapImage()"
-      style="position: relative; top: 0; left: 0; width: 100%"
     />
     <img
       *ngIf="product.sale"
       alt="Sale"
       src="../../../../assets/discount.png"
-      style="position: absolute; top: 0; left: 0; width: 12%"
     />
   </div>
   <!--Rigth side-->
@@ -49,7 +43,6 @@
           class="list-group-item"
           aria-current="true"
           (click)="selectSize(i)"
-          style="cursor: pointer"
         >
           {{ size }}
         </li>
@@ -70,13 +63,13 @@
         </option>
       </select>
     </div>
-    <div class="mb-15">
-      <label style="display: block">Select an Amount:</label>
+    <div id="ammountContainer" class="mb-15">
+      <label>Select an Amount:</label>
       <div class="btn-group" role="group" aria-label="Basic outlined example">
         <button type="button" class="btn btn-dark" (click)="removeAmount()">
           -
         </button>
-        <button class="btn btn-outline-dark" style="pointer-events: none">
+        <button class="btn btn-outline-dark">
           {{ buyAmount }}
         </button>
         <button type="button" class="btn btn-dark" (click)="addAmount()">
@@ -89,7 +82,6 @@
       (click)="addToCart()"
       class="btn btn-success"
       [ngClass]="{ disabled: activeSizeIndex == -1 }"
-      style="width: 100%"
     >
       Add to Cart!
     </button>

@@ -1,0 +1,41 @@
+.container{
+    display: flex; color: black
+}
+
+#imgColumn{
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-right: 10px
+}
+
+#imgColumn > img[alt="Product"]{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#imgColumn > img[alt="Sale"]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12%
+}
+
+.list-group-item{
+    cursor: pointer
+}
+
+#ammountContainer > label {
+    display: block
+}
+
+#ammountContainer > .btn-group > button:nth-child(2) {
+    pointer-events: none
+}
+
+.btn-success{
+    width: 100%
+}
