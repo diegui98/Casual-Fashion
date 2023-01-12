@@ -1,22 +1,13 @@
-<div
-  *ngIf="!detailsMode"
-  style="position: relative; top: 0; left: 0; height: 85%"
->
+<div id="imgContainer" *ngIf="!detailsMode">
   <!--Product Image-->
   <img
     alt="Product"
     [src]="imageSrc"
     (mouseover)="swapImage()"
     (mouseout)="swapImage()"
-    style="position: relative; top: 0; left: 0; width: 100%; height: 100%"
   />
   <!--Sale Icon(img) on top of product image-->
-  <img
-    *ngIf="product.sale"
-    alt="Sale"
-    src="../../../../assets/discount.png"
-    style="position: absolute; top: 0; left: 0; width: 12%"
-  />
+  <img *ngIf="product.sale" alt="Sale" src="../../../../assets/discount.png" />
 </div>
 <!--Product Info-->
 <div>
@@ -26,15 +17,16 @@
       infoNoDetailsMode: !detailsMode
     }"
   >
-    <!--Product Info in deatails mode-->
-    <div style="flex-grow: 1">{{ product.name }}</div>
-    <div *ngIf="detailsMode" style="font-weight: bold">
+    <!--Product Name-->
+    <div class="nameContainer">{{ product.name }}</div>
+    <!--Product Price in details mode-->
+    <div class="priceContainer" *ngIf="detailsMode">
       <span *ngIf="product.inStock">$</span
       ><span *ngIf="product.inStock">{{ product.price }}</span
       ><span *ngIf="!product.inStock">Sold Out</span>
     </div>
     <!--Product Colors-->
-    <div style="flex-grow: 1; display: flex; justify-content: flex-end">
+    <div class="colorContainer">
       <div *ngFor="let image of product.image; index as i">
         <div
           (click)="selectColor(i)"
@@ -49,8 +41,8 @@
       </div>
     </div>
   </div>
-  <!--Product Info in not deatails mode-->
-  <div *ngIf="!detailsMode" style="font-weight: bold">
+  <!--Product Price not details mode-->
+  <div class="priceContainer" *ngIf="!detailsMode">
     <span *ngIf="product.inStock">$</span
     ><span *ngIf="product.inStock">{{ product.price }}</span
     ><span *ngIf="!product.inStock">Sold Out</span>
