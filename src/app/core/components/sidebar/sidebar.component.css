@@ -1,3 +1,15 @@
+#sidebar{
+    position: fixed;
+    z-index: 10;
+    height: 96vh;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+#outside-sidebar{
+    height: 96vh; width: 100%; left: 280px; position: fixed; z-index: 10
+}
+
 .active {
     width: 280px
 }
