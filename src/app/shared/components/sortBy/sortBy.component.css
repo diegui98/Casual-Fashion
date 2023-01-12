@@ -1,0 +1,7 @@
+#sortByContainer{
+    display: flex; align-items: center
+}
+
+#sortByContainer > label {
+    flex-shrink: 0; margin-right: 6px
+}

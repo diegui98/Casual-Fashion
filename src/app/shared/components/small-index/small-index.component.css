@@ -1,3 +1,7 @@
+#smallIndexContainer{
+    display: flex; flex-wrap: wrap; align-items: baseline
+}
+
 .categorySpacer {
     margin-left: 4px;
     margin-right: 4px;
