@@ -4,20 +4,17 @@
     <h1 class="h1 text-center pt-4 font-weight-semibold">Your Cart</h1>
     <hr />
     <div class="mdColumnCart">
+      <!-- Total Price Column -->
       <div class="col-md-3">
-        <div
-          class="bg-light"
-          style="border: 1px solid grey; border-radius: 7px"
-        >
+        <div id="totalPrice" class="bg-light">
           <h5 class="h5 px-4 py-3 text-center">Total Price</h5>
           <div class="h2 font-weight-semibold text-center py-3">
             {{ total | currency }}
           </div>
         </div>
-        <div class="text-center" style="padding-top: 10px">
+        <div id="checkoutContainer" class="text-center">
           <button
             class="btn btn-success"
-            style="width: 100%"
             [disabled]="this.products.length <= 0"
             (click)="checkout()"
           >
@@ -29,13 +26,10 @@
         </div>
       </div>
       <hr />
+      <!-- Items Column -->
       <div class="col-md-9">
-        <div *ngIf="this.products.length <= 0" style="text-align: center">
-          <img
-            style="opacity: 0.25"
-            src="../../../../assets/empty-cart.webp"
-            alt="empty cart icon"
-          />
+        <div id="sadCartContainer" *ngIf="this.products.length <= 0">
+          <img src="../../../../assets/empty-cart.webp" alt="empty cart icon" />
         </div>
         <div
           class="product-info"
@@ -65,9 +59,7 @@
               <div>
                 <div class="productDetails">
                   Color:
-                  <span style="text-transform: capitalize">{{
-                    product.color
-                  }}</span>
+                  <span class="capitalize">{{ product.color }}</span>
                 </div>
                 <div class="productDetails">
                   Size: <span>{{ product.size }}</span>

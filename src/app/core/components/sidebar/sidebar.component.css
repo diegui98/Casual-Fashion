@@ -6,7 +6,7 @@
     transition: 0.3s;
 }
 
-#outside-sidebar{
+#outsideSidebar{
     height: 96vh; width: 100%; left: 280px; position: fixed; z-index: 10
 }
 
