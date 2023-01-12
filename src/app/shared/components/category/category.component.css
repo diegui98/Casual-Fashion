@@ -1,3 +1,11 @@
+h1{
+    text-align: center; margin-bottom: 20px
+}
+
+app-filterBy, app-sortBy {
+    flex-shrink: 1
+}
+
 .filterAndSort{
     display: flex;
       justify-content: space-between;

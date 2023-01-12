@@ -1,3 +1,15 @@
+#togglerContainer{
+    display: flex; align-items: center
+}
+
+#togglerContainer > label {
+    margin-right: 6px
+}
+
+#togglerContainer > button > img {
+    height: 20px
+}
+
 .color-circle {
     width: 22px;
     cursor: pointer;
@@ -25,6 +37,22 @@
     width: 100%;
     margin-top: 3px;
     font-weight: bold;
+}
+
+.filterSection > label {
+    margin-right: 4px
+}
+
+#priceSection > input {
+    flex-grow: 1; width: inherit
+}
+
+#colorSection > div {
+    display: flex; flex-grow: 1
+}
+
+#colorSection > div > div {
+    flex-grow: 1; text-align: -webkit-center
 }
 
 #closed{

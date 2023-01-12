@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="display-1" style="text-align: center; margin-bottom: 20px">
+  <h1 class="display-1">
     {{ category }}
   </h1>
   <app-small-index [category]="category"></app-small-index>
@@ -8,12 +8,10 @@
       (colorFilterChanged)="selectColorFilter($event)"
       (priceToFilter)="selectPriceToFilter($event)"
       [productList]="productList"
-      style="flex-shrink: 1"
     ></app-filterBy>
     <app-sortBy
       (backToNewProductList)="backToNewProductList($event)"
       [productList]="productList"
-      style="flex-shrink: 1"
     ></app-sortBy>
   </div>
 </div>

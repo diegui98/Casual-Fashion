@@ -7,7 +7,6 @@
       [priceToFilter]="priceToFilter"
       (click)="goToDetails(product.id)"
       (colorChanged)="colorChanged($event)"
-      style="cursor: pointer"
       *ngIf="
         (colorFilter == 'none' ||
           this.product.image[0].color == colorFilter ||
