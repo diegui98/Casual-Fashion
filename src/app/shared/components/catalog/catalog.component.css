@@ -16,6 +16,9 @@
     padding-left: 3px;
     padding-right: 3px;
     padding-bottom: 3px;
+    background-color: var(--card-background-color);
+    color: var(--secondary-text-color);
+    border: var(--card-border);
 }
 
 .productCard:hover{

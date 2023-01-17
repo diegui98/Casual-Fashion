@@ -1,5 +1,6 @@
 .container{
-    display: flex; color: black
+    display: flex;
+    color: var(--secondary-text-color)
 }
 
 #imgColumn{
@@ -26,6 +27,15 @@
 
 .list-group-item{
     cursor: pointer
+}
+
+.list-group-item.active{
+    background-color: var(--btn-background-color);
+    color: var(--btn-color);
+}
+
+.form-select{
+    background-color: var(--btn-background-color);
 }
 
 #ammountContainer > label {

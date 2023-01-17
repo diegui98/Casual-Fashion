@@ -1,3 +1,8 @@
+.navbar{
+    background-color: var(--navbar-background-color);
+    color: var(--secondary-text-color);
+}
+
 .navbar-brand{
     font-weight: 800
 }
@@ -12,7 +17,7 @@
 
 .nav-r-links a {
     text-decoration: none;
-    color: black;
+    color: var(--secondary-text-color);
     margin-right: 10px
 }
 

@@ -4,6 +4,17 @@
     height: 96vh;
     overflow: hidden;
     transition: 0.3s;
+    background-color: var(--navbar-background-color);
+    color: var(--secondary-text-color);
+}
+
+#sidebar > span {
+    color: var(--secondary-text-color);
+}
+
+.nav-link.active{
+    background-color: var(--btn-background-color) !important;
+    color: var(--secondary-text-color);
 }
 
 #outsideSidebar{

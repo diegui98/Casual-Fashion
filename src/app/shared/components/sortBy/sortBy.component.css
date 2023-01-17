@@ -5,3 +5,7 @@
 #sortByContainer > label {
     flex-shrink: 0; margin-right: 6px
 }
+
+.btn-background-color{
+    background-color: var(--btn-background-color);
+}
